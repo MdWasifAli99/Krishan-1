@@ -1,0 +1,338 @@
+.community-container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .community-container {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .community-container {
+    padding: 30px; /* Adjust padding for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .community-container {
+    padding: 50px; /* Keep the original padding for large screens */
+  }
+}
+
+.community-title {
+  font-size: 2.5rem;
+  color: #2d5c2f;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .community-title {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .community-title {
+    font-size: 2rem; /* Adjust font size for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .community-title {
+    font-size: 2.5rem; /* Keep the original font size for large screens */
+  }
+}
+
+  
+.community-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .community-subtitle {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .community-subtitle {
+    font-size: 1.1rem; /* Adjust font size for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .community-subtitle {
+    font-size: 1.2rem; /* Keep the original font size for large screens */
+  }
+}
+
+.community-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px 0;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .community-section {
+    flex-direction: column; /* Stack items vertically */
+    padding: 20px 0; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .community-section {
+    flex-direction: row; /* Keep items in a row */
+    padding: 50px 0; /* Adjust padding for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .community-section {
+    flex-direction: row; /* Keep items in a row */
+    padding: 90px 0; /* Keep the original padding for large screens */
+  }
+}
+
+.community-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px 0;
+}
+
+.community-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .community-section.reverse {
+    flex-direction: column-reverse; /* Stack items vertically in reverse order */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .community-section.reverse {
+    flex-direction: row-reverse; /* Keep items in row-reverse for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .community-section.reverse {
+    flex-direction: row-reverse; /* Keep the original row-reverse for large screens */
+  }
+}
+
+
+.text-content {
+  width: 50%;
+  text-align: left;
+  padding: 90px 0;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .text-content {
+    width: 100%; /* Adjust width for smaller screens */
+    padding: 20px 0; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .text-content {
+    width: 75%; /* Adjust width for medium screens */
+    padding: 50px 0; /* Adjust padding for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .text-content {
+    width: 50%; /* Keep the original width for large screens */
+    padding: 90px 0; /* Keep the original padding for large screens */
+  }
+}
+
+.text-content2 {
+  width: 50%;
+  text-align: left;
+  padding: 100px 0;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .text-content2 {
+    width: 100%; /* Adjust width for smaller screens */
+    padding: 20px 0; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .text-content2 {
+    width: 75%; /* Adjust width for medium screens */
+    padding: 50px 0; /* Adjust padding for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .text-content2 {
+    width: 50%; /* Keep the original width for large screens */
+    padding: 100px 0; /* Keep the original padding for large screens */
+  }
+}
+
+
+.image-placeholder {
+  width: 100%;
+  max-width: 1000px; /* Set a maximum width if desired */
+  height: auto; /* Maintain aspect ratio */
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure image fits within the placeholder */
+}
+
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .image-placeholder {
+    width: 100%; /* Adjust width for smaller screens */
+    height: auto; /* Adjust height automatically */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .image-placeholder {
+    width: 60%; /* Adjust width for medium screens */
+    height: auto; /* Adjust height automatically */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .image-placeholder {
+    width: 40%; /* Keep the original width for large screens */
+    height: 300px; /* Keep the original height for large screens */
+  }
+}
+
+
+.contact-options {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background: #f5f5f5;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .contact-options {
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px 0; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .contact-options {
+    flex-direction: row; /* Keep items in a row */
+    padding: 15px 0; /* Adjust padding for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .contact-options {
+    flex-direction: row; /* Keep items in a row */
+    padding: 20px 0; /* Keep the original padding for large screens */
+  }
+}
+
+
+.contact-item {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .contact-item {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .contact-item {
+    font-size: 1rem; /* Keep the original font size for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .contact-item {
+    font-size: 1rem; /* Keep the original font size for large screens */
+  }
+}
+
+
+.btn {
+  background: #2d5c2f;
+  color: #17bc6f;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
+  .btn {
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .btn {
+    padding: 9px 18px; /* Adjust padding for medium screens */
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .btn {
+    padding: 10px 20px; /* Keep the original padding for large screens */
+  }
+}
