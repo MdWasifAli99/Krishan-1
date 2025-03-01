@@ -37,8 +37,7 @@ function App() {
           <Route path="/weather" element={<Weather />} />
           <Route path="/features" element={<Features />} />
           <Route path="/insights" element={<Insights />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          
           <Route path="/krishanbazer" element={<KrishanBazer />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
