@@ -19,7 +19,7 @@ const Home = () => {
             Join a community dedicated to enhancing agricultural practices. Discover tools and resources designed to support your farming journey.
           </p>
           <div className="buttons">
-          <Link to="/signup" className="btn btn-green">Get Started</Link>
+            <button className="btn btn-green">Get Started</button>
             <button className="btn btn-light">Learn More</button>
           </div>
         </div>
