@@ -10,13 +10,6 @@ const generateToken = (id) => {
 // Register User
 const registerUser = async (req, res) => {
   const { name, email, password, role, location } = req.body;
-
-  // Check if user already exists
-  const existingUser = await User.findOne({ email });
-  if (existingUser) {
-    return res.status(400).json({ message: 'User already exists' });
-  }
-
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
@@ -41,7 +34,7 @@ const loginUser = async (req, res) => {
 
 // Get User Profile
 const getUserProfile = async (req, res) => {
-  const user = await User.findById(req.user.id).select('-password'); // Exclude password
+  const user = await User.findById(req.user.id);
   if (user) {
     res.json(user);
   } else {
@@ -49,10 +42,4 @@ const getUserProfile = async (req, res) => {
   }
 };
 
-// Logout User (Clear JWT Cookie)
-const logoutUser = (req, res) => {
-  res.cookie('jwt', '', { httpOnly: true, expires: new Date(0) }); // Clear cookie
-  res.json({ message: 'Logged out successfully' });
-};
-
-module.exports = { registerUser, loginUser, getUserProfile, logoutUser };
+module.exports = { registerUser, loginUser, getUserProfile };
