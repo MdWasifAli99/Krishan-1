@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import ForestIcon from '@mui/icons-material/Forest';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import logo from '../images/KrishanLogo.png';
 
 // Define pages and settings
 const pages = [
@@ -52,23 +53,7 @@ function ResponsiveAppBar() {
         <Toolbar disableGutters>
           {/* Logo and Title for Desktop */}
           <ForestIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link} // Use Link for navigation
-            to="/" // Link to the home page
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Krishan
-          </Typography>
+          <img src={logo} alt="Krishan Logo" style={{ width: '103px', height: '36px' }} />
 
           {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
