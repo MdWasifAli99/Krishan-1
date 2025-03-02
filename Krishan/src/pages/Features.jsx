@@ -1,6 +1,8 @@
 import Layout from '../components/Layout'
 import React from 'react';
 import './Features.css';
+import '../App.css';
+import { Link } from "react-router-dom";
 import Row from '../images/Row.jpg';
 import Chacha from '../images/Chacha.png';
 import Monitor from '../images/Monitor.jpg';
@@ -11,14 +13,14 @@ const Features = () => {
   return (
     <Layout>
         <div className="features-page">
-      <Navbar />
+      
       <section className="hero">
         <div classname="hero1"><img src={Chacha} alt="Chacha" /></div>
         <br></br><br></br><div style={{
         fontSize: "20px"}} classname="hero1">
          <br></br><h1>Empowering Farmers Today</h1>
         <p>Discover how Krishan revolutionizes farming with cutting-edge technology <br></br> and community-driven solutions for farmers.</p><br></br>
-        <button><strong>Join Now</strong></button> <button2><strong>Learn more</strong></button2>
+        <Link to="/signup" className="btn"><button><strong>Join Us</strong></button></Link><button2><strong>Learn more</strong></button2>
         </div>
         
       </section>
@@ -75,7 +77,7 @@ const Features = () => {
         <button>Join</button>
       </section>
 
-      <Footer />
+      
     </div>
     </Layout>
   )
