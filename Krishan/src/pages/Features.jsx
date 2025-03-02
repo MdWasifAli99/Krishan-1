@@ -1,90 +1,82 @@
 import Layout from '../components/Layout'
-import React from 'react'
+import React from 'react';
+import './Features.css';
+import Row from './images/Row.jpg';
+import Chacha from './images/Chacha.png';
+import Monitor from './images/Monitor.jpg';
+import Weather from './images/Weather.jpg';
+import Planning from './images/Planning.jpg';
 
 const Features = () => {
   return (
     <Layout>
-        <h1> Features </h1>
-         {/* Footer */}
-    <footer className="bg-green-50 border-t border-gray-200 mt-10">
-  <div className="max-w-7xl mx-auto px-4 py-8">
-    <div className="flex flex-col md:flex-row md:justify-between md:items-start space-y-8 md:space-y-0">
-      {/* Newsletter */}
-      <div className="md:w-1/2 lg:w-1/3 space-y-2">
-        <h3 className="text-sm font-semibold text-gray-700">
-          Subscribe to our newsletter for the latest updates on features and releases
-        </h3>
-        <div className="flex">
-          <input
-            type="email"
-            placeholder="Your Email Here"
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-green-600"
-          />
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r">
-            Join
-          </button>
+        <div className="features-page">
+      <Navbar />
+      <section className="hero">
+        <div classname="hero1"><img src={Chacha} alt="Chacha" /></div>
+        <br></br><br></br><div style={{
+        fontSize: "20px"}} classname="hero1">
+         <br></br><h1>Empowering Farmers Today</h1>
+        <p>Discover how Krishan revolutionizes farming with cutting-edge technology <br></br> and community-driven solutions for farmers.</p><br></br>
+        <button><strong>Join Now</strong></button> <button2><strong>Learn more</strong></button2>
         </div>
-      </div>
+        
+      </section>
 
-      {/* Footer Links */}
-      <div className="flex flex-wrap md:w-1/2 lg:w-2/3 justify-between">
-        {/* Resources */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Resources</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#about" className="hover:text-green-600">About</a>
-            </li>
-            <li>
-              <a href="#blog" className="hover:text-green-600">Blog Posts</a>
-            </li>
-            <li>
-              <a href="#help" className="hover:text-green-600">Help Center</a>
-            </li>
-            <li>
-              <a href="#community" className="hover:text-green-600">Community</a>
-            </li>
-          </ul>
-        </div>
+      <section className="features">
+        <h4>Features</h4>
+        <h1>Explore Our Innovative Farming Solutions</h1>
+        <h3>At Krishan, We harness technology to empower farmers with essential tools.
+        Our features <br></br> are used to enhance productivity and foster a thriving agricultural community.</h3><br></br>
+        <div className="feature-cards">
+            <img src={Row} alt="Row" />
+        </div> <br></br>
+        <button><strong>Learn more</strong></button> <button2><strong>Join us</strong></button2> 
 
-        {/* Connect With Us */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Connect With Us</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#facebook" className="hover:text-green-600">Facebook Page</a>
-            </li>
-            <li>
-              <a href="#instagram" className="hover:text-green-600">Instagram Feed</a>
-            </li>
-            <li>
-              <a href="#twitter" className="hover:text-green-600">Twitter</a>
-            </li>
-            <li>
-              <a href="#linkedin" className="hover:text-green-600">LinkedIn</a>
-            </li>
-          </ul>
-        </div>
+      </section>
 
-        {/* Legal Links */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Legal Links</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#privacy" className="hover:text-green-600">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#terms" className="hover:text-green-600">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#cookie" className="hover:text-green-600">Cookie Settings</a>
-            </li>
-          </ul>
+      <section className="insights">
+        <h1 style={{fontSize: "47px"}}>Revolutionizing Market Monitoring for Farmers</h1>
+        <h3>Stay ahead with our interactive price trends and demand insights.</h3>
+        <br></br>
+        <div className="stats">
+          <div className="stat">
+            <h1 >90%</h1>
+            <p>Maximize profits with data-dr marketiven strategies.</p> <br></br>
+            <h1>76%</h1>
+            <p>Access comprehensive insights for smarter farming.</p>
+          </div>
+          <div className="stat">
+            <img src={Monitor} alt="Monitor" />
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="weather">
+        <h1>Stay Ahead with Real-Time Weather Insights</h1>
+        <h3>Harness the power of accurate weather data tailored for farmers.</h3><br></br>
+        <div className="weather-info">
+          <div className="info">
+            <img src={Weather} alt="Weather" />
+            <h2>Forecast Accuracy</h2>
+            <p>Get precise weather updates to enhance your farming strategies.</p>
+          </div>
+          <div className="info">
+            <img src={Planning} alt="Planning" />
+            <h2>Planning Tools</h2>
+            <p>Utilize crop-specific recommendations for planting and harvesting.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="community">
+        <h2>Join Our Thriving Farmer Community Today</h2>
+        <p>Engage with fellow farmers in our dynamic forums.</p>
+        <button>Join</button>
+      </section>
+
+      <Footer />
     </div>
-  </div>
-</footer>
     </Layout>
   )
 }
