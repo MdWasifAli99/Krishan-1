@@ -53,7 +53,23 @@ function ResponsiveAppBar() {
         <Toolbar disableGutters>
           {/* Logo and Title for Desktop */}
           <ForestIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <img src={logo} alt="Krishan Logo" style={{ width: '103px', height: '36px' }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component={Link} // Use Link for navigation
+            to="/" // Link to the home page
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'poppins',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <img src = {logo} alt = "Krishan Logo" style = {{width: "103px", height: "36px"}} />
+          </Typography>
 
           {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -102,14 +118,14 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'poppins',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            Krishan
+             <img src = {logo} alt = "Krishan Logo" style = {{width: "103px", height: "36px"}} />
           </Typography>
 
           {/* Pages for Desktop */}
