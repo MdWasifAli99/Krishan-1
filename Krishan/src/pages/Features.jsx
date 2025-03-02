@@ -1,11 +1,11 @@
 import Layout from '../components/Layout'
 import React from 'react';
 import './Features.css';
-import Row from './images/Row.jpg';
-import Chacha from './images/Chacha.png';
-import Monitor from './images/Monitor.jpg';
-import Weather from './images/Weather.jpg';
-import Planning from './images/Planning.jpg';
+import Row from '../images/Row.jpg';
+import Chacha from '../images/Chacha.png';
+import Monitor from '../images/Monitor.jpg';
+import Weather from '../images/Weather.jpg';
+import Planning from '../images/Planning.jpg';
 
 const Features = () => {
   return (
