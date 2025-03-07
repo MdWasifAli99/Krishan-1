@@ -11,9 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import ForestIcon from '@mui/icons-material/Forest';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../images/KrishanLogo.png';
+
 
 // Define pages and settings
 const pages = [
@@ -48,11 +48,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: 'green' }}>
-      <Container maxWidth="xl">
+    <AppBar position= "fixed" sx={{ backgroundColor: '#effdee' }}>
+      <Container maxWidth= {false} >
         <Toolbar disableGutters>
           {/* Logo and Title for Desktop */}
-          <ForestIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -79,7 +78,7 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="#ffffff"
             >
               <MenuIcon />
             </IconButton>
@@ -108,7 +107,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Logo and Title for Mobile */}
-          <ForestIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          
           <Typography
             variant="h5"
             noWrap
@@ -122,24 +121,76 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
-              textDecoration: 'none',
+              textDecoration:'none',
             }}
           >
              <img src = {logo} alt = "Krishan Logo" style = {{width: "103px", height: "36px"}} />
           </Typography>
 
           {/* Pages for Desktop */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+           {/* Pages for Desktop (Centering the Pages) */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'center', // Center the pages horizontally
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.name}
                 component={Link} // Use Link for navigation
                 to={page.path} // Link to the respective page
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'black',
+                  display: 'block',
+                  fontFamily: 'Poppins', // Change font to Poppins
+                }}
               >
                 {page.name}
               </Button>
             ))}
+          </Box>
+
+          {/* Rightmost Login and Sign Up Buttons */}
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
+            <Button
+              component={Link} // Use Link for navigation
+              to="/login" // Link to the login page
+              sx={{
+                my: 2,
+                color: 'black',
+                display: 'block',
+                border: '1px solid green',
+                backgroundColor: 'transparent', // Transparent background
+                fontFamily: 'Poppins', // Font for the button
+                '&:hover': {
+                  color: 'white',
+                  backgroundColor: '#377842', // Add hover effect
+                },
+              }}
+            >
+              Log in
+            </Button>
+            <Button
+              component={Link} // Use Link for navigation
+              to="/signup" // Link to the signup page
+              sx={{
+                my: 2,
+                color: 'black',
+                display: '',
+                border: '1px solid green',
+                backgroundColor: 'transparent', // Transparent background
+                fontFamily: 'Poppins', // Font for the button
+                '&:hover': {
+                  color: 'white',
+                  backgroundColor: '#377842', // Add hover effect
+                },
+              }}
+            >
+              Sign Up
+            </Button>
           </Box>
 
           {/* User Settings */}
