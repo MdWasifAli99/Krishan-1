@@ -8,6 +8,7 @@ import Insights from "./pages/Insights";
 import Weather from "./pages/Weather";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import KrishanBazer from "./pages/KrishanBazer";
 import PageNotFound from "./pages/PageNotFound";
 import { useEffect, useState } from "react";
@@ -39,6 +40,7 @@ function App() {
           <Route path="/insights" element={<Insights />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/krishanbazer" element={<KrishanBazer />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
