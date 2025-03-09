@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import ForestIcon from '@mui/icons-material/Forest';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../images/KrishanLogo.png';
 
@@ -31,6 +30,9 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  // Check if the user is logged in
+  const isLoggedIn = localStorage.getItem('token'); // Check for token in local storage
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -47,12 +49,16 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token from local storage
+    window.location.reload(); // Refresh the page to update the UI
+  };
+
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: 'green' }}>
-      <Container maxWidth="xl">
+    <AppBar position="fixed" sx={{ backgroundColor: '#effdee' }}>
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
           {/* Logo and Title for Desktop */}
-          <ForestIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -68,7 +74,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <img src = {logo} alt = "Krishan Logo" style = {{width: "103px", height: "36px"}} />
+            <img src={logo} alt="Krishan Logo" style={{ width: '103px', height: '36px' }} />
           </Typography>
 
           {/* Mobile Menu */}
@@ -79,7 +85,7 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="#ffffff"
             >
               <MenuIcon />
             </IconButton>
@@ -108,7 +114,6 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Logo and Title for Mobile */}
-          <ForestIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -125,53 +130,107 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-             <img src = {logo} alt = "Krishan Logo" style = {{width: "103px", height: "36px"}} />
+            <img src={logo} alt="Krishan Logo" style={{ width: '103px', height: '36px' }} />
           </Typography>
 
           {/* Pages for Desktop */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'center', // Center the pages horizontally
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.name}
                 component={Link} // Use Link for navigation
                 to={page.path} // Link to the respective page
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'black',
+                  display: 'block',
+                  fontFamily: 'Poppins', // Change font to Poppins
+                }}
               >
                 {page.name}
               </Button>
             ))}
           </Box>
 
-          {/* User Settings */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {/* Conditional Rendering Based on Login State */}
+          {isLoggedIn ? (
+            // User Settings (Logged In)
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          ) : (
+            // Log in and Sign Up Buttons (Not Logged In)
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
+              <Button
+                component={Link} // Use Link for navigation
+                to="/login" // Link to the login page
+                sx={{
+                  my: 2,
+                  color: 'black',
+                  display: 'block',
+                  border: '1px solid green',
+                  backgroundColor: 'transparent', // Transparent background
+                  fontFamily: 'Poppins', // Font for the button
+                  '&:hover': {
+                    color: 'white',
+                    backgroundColor: '#377842', // Add hover effect
+                  },
+                }}
+              >
+                Log in
+              </Button>
+              <Button
+                component={Link} // Use Link for navigation
+                to="/signup" // Link to the signup page
+                sx={{
+                  my: 2,
+                  color: 'black',
+                  display: '',
+                  border: '1px solid green',
+                  backgroundColor: 'transparent', // Transparent background
+                  fontFamily: 'Poppins', // Font for the button
+                  '&:hover': {
+                    color: 'white',
+                    backgroundColor: '#377842', // Add hover effect
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

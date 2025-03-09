@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { Link } from "react-router-dom";
 import '../App.css';
+import farmer from '../images/farmer.png'
 
 const Home = () => {
   return (
@@ -27,7 +28,7 @@ const Home = () => {
       {/* Image Section */}
       <div className="col-md-6 text-center">
         <img
-          src="https://rangde.in/blog-admin/uploads/Indian_Farmers_61e5e4cb8b.png" 
+          src={farmer}
           alt="Placeholder for Hero Section" 
           className="img-fluid"
         />

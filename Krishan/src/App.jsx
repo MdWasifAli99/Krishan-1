@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute';
 import Home from "./pages/Home";
 import Advice from "./pages/Advice";
 import AboutUs from "./pages/AboutUs";
@@ -32,7 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/advice" element={<Advice />} />
+         
           
           <Route path="/community" element={<Community />} />
           <Route path="/weather" element={<Weather />} />
@@ -41,7 +42,13 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route element={<PrivateRoute />}>
+          
           <Route path="/krishanbazer" element={<KrishanBazer />} />
+          <Route path="/advice" element={<Advice />} />
+          </Route>
+
+        
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
