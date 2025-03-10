@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Container, TextField, Button, Typography, Card, MenuItem, Select } from "@mui/material";
+import backgroundImage from "../images/i4.jpg";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -34,75 +36,122 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+    <Container
+      maxWidth="false"
+      sx={{
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        padding: 0,
+        margin: 0,
+        minWidth: "100%",
+      }}
+    >
+      <Card
+        sx={{
+          p: 4,
+          width: "90%",
+          maxWidth: 400,
+          boxShadow: 5,
+          bgcolor: "rgba(255, 255, 255, 0.5)", // Transparent background
+          backdropFilter: "blur(10px)", // Frosted glass effect
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
           Sign Up
-        </h2>
+        </Typography>
         {message && (
-          <p className="text-green-600 text-center mb-4">{message}</p>
+          <Typography
+            align="center"
+            color={message.includes("successful") ? "success.main" : "error.main"}
+            sx={{ mb: 2 }}
+          >
+            {message}
+          </Typography>
         )}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-4">
-                <input
-                    type="text"
-              name="name"
-              placeholder="Full Name"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200"
-              onChange={handleChange}
-              required
-                />
-                <input
-                    type="email"
-              name="email"
-                    placeholder="Email Address"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200"
-              onChange={handleChange}
-              required
-                />
-                <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200"
-              onChange={handleChange}
-              required
-            />
-            <select
-              name="role"
-              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:ring focus:ring-green-200"
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Role</option>
-              <option value="farmer">Farmer</option>
-              <option value="businessman">Businessman</option>
-              <option value="expert">Expert</option>
-            </select>
-                <input
-                    type="text"
-              name="location"
-              placeholder="Location"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-200"
-              onChange={handleChange}
-              required
-            />
-                </div>
-          <button
+        <form onSubmit={handleSubmit}>
+          <TextField
+            fullWidth
+            type="text"
+            name="name"
+            label="Full Name"
+            variant="outlined"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            fullWidth
+            type="email"
+            name="email"
+            label="Email Address"
+            variant="outlined"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            fullWidth
+            type="password"
+            name="password"
+            label="Password"
+            variant="outlined"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            sx={{ mb: 2 }}
+          />
+          <Select
+            fullWidth
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
+            displayEmpty
+            required
+            sx={{ mb: 2 }}
+          >
+            <MenuItem value="" disabled>
+              Select Role
+            </MenuItem>
+            <MenuItem value="farmer">Farmer</MenuItem>
+            <MenuItem value="businessman">Businessman</MenuItem>
+            <MenuItem value="expert">Expert</MenuItem>
+          </Select>
+          <TextField
+            fullWidth
+            type="text"
+            name="location"
+            label="Location"
+            variant="outlined"
+            value={formData.location}
+            onChange={handleChange}
+            required
+            sx={{ mb: 3 }}
+          />
+          <Button
             type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition"
+            variant="contained"
+            sx={{ backgroundColor: "#4caf50", color: "white", '&:hover': { backgroundColor: "#45a049" } }}
+            fullWidth
           >
             Register
-                </button>
-            </form>
-        <p className="text-center text-gray-600 mt-4">
+          </Button>
+        </form>
+        <Typography align="center" sx={{ mt: 2 }}>
           Already have an account?{" "}
-          <a href="/login" className="text-green-600 hover:underline">
+          <a href="/login" style={{ color: "#4caf50", textDecoration: "none" }}>
             Log in
-                    </a>
-                </p>
-            </div>
-        </div>
+          </a>
+        </Typography>
+      </Card>
+    </Container>
   );
 };
 

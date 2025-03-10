@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { Container, TextField, Button, Typography, Card } from "@mui/material";
+import backgroundImage from "../images/i4.jpg";
 const Login = ({ setUser }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Redirect to dashboard if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -32,16 +32,10 @@ const Login = ({ setUser }) => {
 
       console.log("Login Response:", res.data);
 
-      // Save token to localStorage
       localStorage.setItem("token", res.data.token);
-      console.log("Token saved:", localStorage.getItem("token")); // Verify the token is saved
+      console.log("Token saved:", localStorage.getItem("token"));
 
-      // Update user state
-      //setUser(res.data.user);
-
-      // Redirect to dashboard immediately after successful login
       navigate("/dashboard");
-
       setMessage("Login successful!");
     } catch (error) {
       setMessage(error.response?.data?.message || "Login failed. Try again.");
@@ -51,47 +45,79 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">Login</h2>
+    <Container
+      maxWidth="false"
+      sx={{
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        padding: 0,
+        margin: 0,
+        minWidth: "100%",
+      }}
+    >
+      <Card
+        sx={{
+          p: 4,
+          width: "90%",
+          maxWidth: 300,
+          boxShadow: 5,
+          bgcolor: "rgba(255, 255, 255, 0.5)", // Adjusted transparency (0.5 alpha)
+          backdropFilter: "blur(10px)", // Optional: Adds a blur effect to the background
+        }}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          Login
+        </Typography>
         {message && (
-          <p className={`text-center text-sm ${message.includes("successful") ? "text-green-500" : "text-red-500"} mb-4`}>
+          <Typography
+            align="center"
+            color={message.includes("successful") ? "success.main" : "error.main"}
+            sx={{ mb: 2 }}
+          >
             {message}
-          </p>
+          </Typography>
         )}
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-  <input
-    type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-  />
-</div>
-          <div className="mb-6">
-  <input
-    type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-  />
-</div>
-    <button
-      type="submit"
+          <TextField
+            fullWidth
+            type="email"
+            name="email"
+            label="Email"
+            variant="outlined"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            fullWidth
+            type="password"
+            name="password"
+            label="Password"
+            variant="outlined"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            sx={{ mb: 3 }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ backgroundColor: "#4caf50", color: "white", '&:hover': { backgroundColor: "#45a049" } }}
+            fullWidth
             disabled={loading}
-            className="w-full py-3 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 disabled:bg-gray-300"
           >
             {loading ? "Logging in..." : "Login"}
-          </button>
+          </Button>
         </form>
-      </div>
-    </div>
+      </Card>
+    </Container>
   );
 };
 
