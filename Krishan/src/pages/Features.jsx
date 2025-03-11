@@ -20,7 +20,7 @@ const Features = () => {
         fontSize: "20px"}} classname="hero1">
          <br></br><h1>Empowering Farmers Today</h1>
         <p>Discover how Krishan revolutionizes farming with cutting-edge technology <br></br> and community-driven solutions for farmers.</p><br></br>
-        <Link to="/signup" className="btn"><button><strong>Join Us</strong></button></Link><button2><strong>Learn more</strong></button2>
+        <Link to="/signup" className="btn"><button><strong>Join Us</strong></button></Link><Link to="/featureblog1" className="btn"><button><strong>Learn More</strong></button></Link>
         </div>
         
       </section>
@@ -33,7 +33,7 @@ const Features = () => {
         <div className="feature-cards">
             <img src={Row} alt="Row" />
         </div> <br></br>
-        <button><strong>Learn more</strong></button> <button2><strong>Join us</strong></button2> 
+       <Link to ="/featureblog2"><button><strong>Learn more</strong></button></Link>  <Link to ="/signup"><button2><strong>Join us</strong></button2></Link> 
 
       </section>
 
@@ -74,7 +74,7 @@ const Features = () => {
       <section className="community">
         <h2>Join Our Thriving Farmer Community Today</h2>
         <p>Engage with fellow farmers in our dynamic forums.</p>
-        <button>Join</button>
+       <Link to ="/signup"><button>Join</button></Link> 
       </section>
 
       
