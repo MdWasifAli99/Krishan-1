@@ -21,7 +21,7 @@ const Home = () => {
           </p>
           <div className="buttons">
           <Link to="/signup" className="btn btn-green">Get Started</Link>
-            <button className="btn btn-light">Learn More</button>
+            <Link to="/homeblog1"><button className="btn btn-light">Learn More</button></Link>
           </div>
         </div>
       </div>
@@ -68,8 +68,8 @@ const Home = () => {
       <section className="join-section">
         <h2>Join Our Farming Community</h2>
         <p>Become part of a thriving network dedicated to empowering farmers through innovative technology and support.</p>
-        <button className="btn btn-green">Join</button>
-        <button className="btn btn-light">Learn More</button>
+        <Link to="/signup"><button className="btn btn-green">Join</button></Link>
+        <Link to="/community"><button className="btn btn-light">Learn More</button></Link>
       </section>
 
       {/* Footer */}

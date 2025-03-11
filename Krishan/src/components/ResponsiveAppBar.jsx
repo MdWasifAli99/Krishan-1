@@ -24,34 +24,16 @@ const pages = [
   { name: 'Community', path: '/community' },
   { name: 'About Us', path: '/about-us' },
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  // Check if the user is logged in
-  const isLoggedIn = localStorage.getItem('token'); // Check for token in local storage
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from local storage
-    window.location.reload(); // Refresh the page to update the UI
   };
 
   return (
@@ -199,6 +181,7 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
+
           {/* Conditional Rendering Based on Login State */}
           {isLoggedIn ? (
             // User Settings (Logged In)
@@ -275,6 +258,47 @@ function ResponsiveAppBar() {
               </Button>
             </Box>
           )}
+
+          {/* Rightmost Login and Sign Up Buttons */}
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
+            <Button
+              component={Link} // Use Link for navigation
+              to="/login" // Link to the login page
+              sx={{
+                color: 'white', // White text
+                border: '1px solid #00ff88', // Neon green border
+                fontFamily: 'Poppins',
+                textTransform: 'none', // Disable uppercase transformation
+                fontSize: '1rem', // Slightly larger font size
+                '&:hover': {
+                  backgroundColor: '#00ff88', // Neon green background on hover
+                  color: '#0a1f1d', // Dark text on hover
+                  boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
+                },
+              }}
+            >
+              Log in
+            </Button>
+            <Button
+              component={Link} // Use Link for navigation
+              to="/signup" // Link to the signup page
+              sx={{
+                color: 'white', // White text
+                border: '1px solid #00ff88', // Neon green border
+                fontFamily: 'Poppins',
+                textTransform: 'none', // Disable uppercase transformation
+                fontSize: '1rem', // Slightly larger font size
+                '&:hover': {
+                  backgroundColor: '#00ff88', // Neon green background on hover
+                  color: '#0a1f1d', // Dark text on hover
+                  boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
+                },
+              }}
+            >
+              Sign Up
+            </Button>
+          </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
