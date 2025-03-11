@@ -1,4 +1,5 @@
 import Layout from '../components/Layout'
+import { Link } from "react-router-dom";
 import React from 'react'
 
 const Weather = () => {
@@ -11,8 +12,8 @@ const Weather = () => {
         <h1 className="text-4xl font-bold mb-4">Stay Ahead with Real-Time Weather Insights</h1>
         <p className="mb-6">Weather plays a crucial role in farming success. Our Weather Info page provides farmers with essential updates and forecasts tailored specifically for agricultural needs.</p>
         <div className="space-x-4">
-          <button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button>
-          <button className="bg-white text-black py-2 px-6 rounded-lg">Get Started</button>
+         <Link to = "/signup"><button className="bg-white text-black py-2 px-6 rounded-lg">Get Started</button></Link>
+         <Link to ="/weatherblog1"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button></Link>
         </div>
       </section>
 
@@ -26,7 +27,7 @@ const Weather = () => {
       <li><strong>Current Conditions:</strong> Real-time weather data to safeguard your crops.</li>
       <li><strong>Planning Tools:</strong> Tailored advice for planning and harvesting.</li>
     </ul>
-    <button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button>
+    <Link to = "/weatherblog2"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button></Link>
   </div>
 
       <div className="bg-white p-8 shadow-lg rounded-lg">
@@ -37,7 +38,7 @@ const Weather = () => {
     <li><strong>Weather Alerts:</strong> Immediate alerts for extreme weather events.</li>
     <li><strong>Planning Tools:</strong> Optimize planting and harvesting schedules.</li>
   </ul>
-  <button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button>
+  <Link to = "/weatherblog3" ><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button></Link>
 </div>
 
 <div className="bg-white p-8 shadow-lg rounded-lg">
@@ -49,7 +50,7 @@ const Weather = () => {
     <li><strong>Precipitation:</strong> Rainfall predictions for the upcoming week.</li>
     <li><strong>Wind Conditions:</strong> Wind speed and direction forecasts.</li>
   </ul>
-  <button className="bg-green-600 text-white py-2 px-6 rounded-lg">Explore More</button>
+  <Link to ="/signup"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Explore More</button></Link>
 </div>
 
 
@@ -62,7 +63,7 @@ const Weather = () => {
     <li><strong>Flood Warnings:</strong> Updates on potential flood risks.</li>
     <li><strong>Drought Alerts:</strong> Warnings about prolonged dry spells.</li>
   </ul>
-  <button className="bg-green-600 text-white py-2 px-6 rounded-lg">Get Alerts</button>
+  <Link to ="/signup"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Get Alerts</button></Link>
 </div>
 
       </section>
