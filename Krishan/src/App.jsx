@@ -12,6 +12,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import KrishanBazer from "./pages/KrishanBazer";
 import PageNotFound from "./pages/PageNotFound";
+import HomeBlog1 from './pages/HomeBlog1'; 
+import FeatureBlog1 from './pages/FeatureBlog1';
+import FeatureBlog2 from './pages/FeatureBlog2';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -41,6 +44,9 @@ function App() {
           <Route path="/insights" element={<Insights />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/homeblog1" element={<HomeBlog1 />} />
+          <Route path="/featureblog1" element={<FeatureBlog1 />} />
+          <Route path="/featureblog2" element={<FeatureBlog2 />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route element={<PrivateRoute />}>
           
