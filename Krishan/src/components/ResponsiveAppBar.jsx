@@ -9,6 +9,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../images/KrishanLogo.png';
 
@@ -179,6 +181,84 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
+
+          {/* Conditional Rendering Based on Login State */}
+          {isLoggedIn ? (
+            // User Settings (Logged In)
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem
+                    key={setting}
+                    onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}
+                  >
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          ) : (
+            // Log in and Sign Up Buttons (Not Logged In)
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
+              <Button
+                component={Link} // Use Link for navigation
+                to="/login" // Link to the login page
+                sx={{
+                  color: 'white', // White text
+                  border: '1px solid #00ff88', // Neon green border
+                  fontFamily: 'Poppins',
+                  textTransform: 'none', // Disable uppercase transformation
+                  fontSize: '1rem', // Slightly larger font size
+                  '&:hover': {
+                    backgroundColor: '#00ff88', // Neon green background on hover
+                    color: '#0a1f1d', // Dark text on hover
+                    boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
+                  },
+                }}
+              >
+                Log in
+              </Button>
+              <Button
+                component={Link} // Use Link for navigation
+                to="/signup" // Link to the signup page
+                sx={{
+                  color: 'white', // White text
+                  border: '1px solid #00ff88', // Neon green border
+                  fontFamily: 'Poppins',
+                  textTransform: 'none', // Disable uppercase transformation
+                  fontSize: '1rem', // Slightly larger font size
+                  '&:hover': {
+                    backgroundColor: '#00ff88', // Neon green background on hover
+                    color: '#0a1f1d', // Dark text on hover
+                    boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
+            </Box>
+          )}
+
           {/* Rightmost Login and Sign Up Buttons */}
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
             <Button
@@ -218,6 +298,7 @@ function ResponsiveAppBar() {
               Sign Up
             </Button>
           </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
