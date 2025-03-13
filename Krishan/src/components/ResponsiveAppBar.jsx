@@ -14,7 +14,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../images/KrishanLogo.png';
 
-// Define pages and settings
+// Define pages
 const pages = [
   { name: 'Features', path: '/features' },
   { name: 'Krishan Bazer', path: '/krishanbazer' },
@@ -27,13 +27,31 @@ const pages = [
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false); // Replace with actual authentication logic
 
+  const settings = ['Profile', 'Dashboard', 'Logout'];
+
+  // Handlers for opening/closing menus
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const handleLogout = () => {
+    console.log('User logged out'); // Replace with actual logout logic
+    setIsLoggedIn(false);
   };
 
   return (
@@ -48,30 +66,24 @@ function ResponsiveAppBar() {
     >
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          {/* Logo and Title for Desktop */}
+          {/* Logo for Desktop */}
           <Typography
             variant="h6"
             noWrap
-            component={Link} // Use Link for navigation
-            to="/" // Link to the home page
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'Poppins',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'white', // White text
+              color: 'white',
               textDecoration: 'none',
-              '&:hover': {
-                opacity: 0.8, // Subtle hover effect
-              },
+              '&:hover': { opacity: 0.8 },
             }}
           >
-            <img
-              src={logo}
-              alt="Krishan Logo"
-              style={{ width: '103px', height: '36px' }}
-            />
+            <img src={logo} alt="Krishan Logo" style={{ width: '103px', height: '36px' }} />
           </Typography>
 
           {/* Mobile Menu */}
@@ -82,28 +94,19 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              sx={{ color: 'white' }} // White color for the menu icon
+              sx={{ color: 'white' }}
             >
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-                backdropFilter: 'blur(10px)', // Glass morphism effect
-              }}
+              sx={{ display: { xs: 'block', md: 'none' }, backdropFilter: 'blur(10px)' }}
             >
               {pages.map((page) => (
                 <MenuItem
@@ -112,10 +115,8 @@ function ResponsiveAppBar() {
                   component={Link}
                   to={page.path}
                   sx={{
-                    color: 'white', // White text
-                    '&:hover': {
-                      backgroundColor: 'rgba(0, 255, 136, 0.1)', // Subtle hover effect
-                    },
+                    color: 'white',
+                    '&:hover': { backgroundColor: 'rgba(0, 255, 136, 0.3)' },
                   }}
                 >
                   <Typography textAlign="center">{page.name}</Typography>
@@ -124,12 +125,12 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
 
-          {/* Logo and Title for Mobile */}
+          {/* Logo for Mobile */}
           <Typography
             variant="h5"
             noWrap
-            component={Link} // Use Link for navigation
-            to="/" // Link to the home page
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -137,42 +138,29 @@ function ResponsiveAppBar() {
               fontFamily: 'Poppins',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'white', // White text
+              color: 'white',
               textDecoration: 'none',
-              '&:hover': {
-                opacity: 0.8, // Subtle hover effect
-              },
+              '&:hover': { opacity: 0.8 },
             }}
           >
-            <img
-              src={logo}
-              alt="Krishan Logo"
-              style={{ width: '103px', height: '36px' }}
-            />
+            <img src={logo} alt="Krishan Logo" style={{ width: '103px', height: '36px' }} />
           </Typography>
 
-          {/* Pages for Desktop */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'center', // Center the pages horizontally
-              gap: 2, // Add spacing between buttons
-            }}
-          >
+          {/* Desktop Navigation */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 2 }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
-                component={Link} // Use Link for navigation
-                to={page.path} // Link to the respective page
+                component={Link}
+                to={page.path}
                 sx={{
-                  color: 'white', // White text
+                  color: 'white',
                   fontFamily: 'Poppins',
-                  textTransform: 'none', // Disable uppercase transformation
-                  fontSize: '1rem', // Slightly larger font size
+                  textTransform: 'none',
+                  fontSize: '1rem',
                   '&:hover': {
-                    backgroundColor: 'rgba(0, 255, 136, 0.1)', // Subtle hover effect
-                    boxShadow: '0 0 10px rgba(0, 255, 136, 0.2)', // Neon glow on hover
+                    backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                    boxShadow: '0 0 10px rgba(0, 255, 136, 0.2)',
                   },
                 }}
               >
@@ -181,10 +169,8 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-
-          {/* Conditional Rendering Based on Login State */}
+          {/* User Authentication Controls */}
           {isLoggedIn ? (
-            // User Settings (Logged In)
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -195,110 +181,25 @@ function ResponsiveAppBar() {
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
+                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
                 {settings.map((setting) => (
-                  <MenuItem
-                    key={setting}
-                    onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}
-                  >
+                  <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
           ) : (
-            // Log in and Sign Up Buttons (Not Logged In)
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
-              <Button
-                component={Link} // Use Link for navigation
-                to="/login" // Link to the login page
-                sx={{
-                  color: 'white', // White text
-                  border: '1px solid #00ff88', // Neon green border
-                  fontFamily: 'Poppins',
-                  textTransform: 'none', // Disable uppercase transformation
-                  fontSize: '1rem', // Slightly larger font size
-                  '&:hover': {
-                    backgroundColor: '#00ff88', // Neon green background on hover
-                    color: '#0a1f1d', // Dark text on hover
-                    boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
-                  },
-                }}
-              >
-                Log in
-              </Button>
-              <Button
-                component={Link} // Use Link for navigation
-                to="/signup" // Link to the signup page
-                sx={{
-                  color: 'white', // White text
-                  border: '1px solid #00ff88', // Neon green border
-                  fontFamily: 'Poppins',
-                  textTransform: 'none', // Disable uppercase transformation
-                  fontSize: '1rem', // Slightly larger font size
-                  '&:hover': {
-                    backgroundColor: '#00ff88', // Neon green background on hover
-                    color: '#0a1f1d', // Dark text on hover
-                    boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
-                  },
-                }}
-              >
-                Sign Up
-              </Button>
+              <Button component={Link} to="/login" sx={{ color: 'white', border: '1px solid #00ff88', fontFamily: 'Poppins', textTransform: 'none', fontSize: '1rem', '&:hover': { backgroundColor: '#00ff88', color: '#0a1f1d', boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)' } }}>Log in</Button>
+              <Button component={Link} to="/signup" sx={{ color: 'white', border: '1px solid #00ff88', fontFamily: 'Poppins', textTransform: 'none', fontSize: '1rem', '&:hover': { backgroundColor: '#00ff88', color: '#0a1f1d', boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)' } }}>Sign Up</Button>
             </Box>
           )}
-
-          {/* Rightmost Login and Sign Up Buttons */}
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', flexGrow: 0 }}>
-            <Button
-              component={Link} // Use Link for navigation
-              to="/login" // Link to the login page
-              sx={{
-                color: 'white', // White text
-                border: '1px solid #00ff88', // Neon green border
-                fontFamily: 'Poppins',
-                textTransform: 'none', // Disable uppercase transformation
-                fontSize: '1rem', // Slightly larger font size
-                '&:hover': {
-                  backgroundColor: '#00ff88', // Neon green background on hover
-                  color: '#0a1f1d', // Dark text on hover
-                  boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
-                },
-              }}
-            >
-              Log in
-            </Button>
-            <Button
-              component={Link} // Use Link for navigation
-              to="/signup" // Link to the signup page
-              sx={{
-                color: 'white', // White text
-                border: '1px solid #00ff88', // Neon green border
-                fontFamily: 'Poppins',
-                textTransform: 'none', // Disable uppercase transformation
-                fontSize: '1rem', // Slightly larger font size
-                '&:hover': {
-                  backgroundColor: '#00ff88', // Neon green background on hover
-                  color: '#0a1f1d', // Dark text on hover
-                  boxShadow: '0 0 10px rgba(0, 255, 136, 0.5)', // Neon glow on hover
-                },
-              }}
-            >
-              Sign Up
-            </Button>
-          </Box>
-
         </Toolbar>
       </Container>
     </AppBar>
