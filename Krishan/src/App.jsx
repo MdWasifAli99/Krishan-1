@@ -54,14 +54,14 @@ function App() {
           <Route path="/weatherblog2" element={<WeatherBlog2 />} />
           <Route path="/weatherblog3" element={<WeatherBlog3 />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route element={<PrivateRoute />}>
+         
           
           <Route path="/krishanbazer" element={<KrishanBazer />} />
           <Route path="/advice" element={<Advice />} />
-          </Route>
+          <Route path="/page-not-found" element={<PageNotFound />} />
 
         
-          <Route path="*" element={<PageNotFound />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

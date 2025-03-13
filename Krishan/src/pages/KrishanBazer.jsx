@@ -34,43 +34,43 @@ const KrishanBazer = () => {
 
   const products = [
     // Expanded product list (40 items)
-    { name: "Fresh Tomatoes", price: "₹25/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?tomato" },
-    { name: "Organic Potatoes", price: "₹18/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?potato" },
-    { name: "Premium Wheat", price: "₹30/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?wheat" },
-    { name: "Sweet Carrots", price: "₹20/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?carrot" },
-    { name: "Fresh Spinach", price: "₹15/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?spinach" },
-    { name: "Organic Rice", price: "₹45/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?rice" },
-    { name: "Fresh Apples", price: "₹120/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?apple" },
-    { name: "Ripe Bananas", price: "₹40/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?banana" },
-    { name: "Juicy Oranges", price: "₹80/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?orange" },
-    { name: "Fresh Grapes", price: "₹150/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?grapes" },
-    { name: "Sweet Mangoes", price: "₹100/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?mango" },
-    { name: "Fresh Strawberries", price: "₹200/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?strawberry" },
-    { name: "Crisp Cucumbers", price: "₹30/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?cucumber" },
-    { name: "Fresh Bell Peppers", price: "₹50/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?bellpepper" },
-    { name: "Organic Onions", price: "₹35/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?onion" },
-    { name: "Fresh Garlic", price: "₹60/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?garlic" },
-    { name: "Organic Broccoli", price: "₹90/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?broccoli" },
-    { name: "Fresh Cauliflower", price: "₹70/kg", category: "Vegetables", image: "https://source.unsplash.com/random/400x300/?cauliflower" },
-    { name: "Sweet Pineapples", price: "₹110/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?pineapple" },
-    { name: "Fresh Papayas", price: "₹90/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?papaya" },
-    { name: "Ripe Guavas", price: "₹60/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?guava" },
-    { name: "Fresh Pomegranates", price: "₹180/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?pomegranate" },
-    { name: "Sweet Watermelons", price: "₹40/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?watermelon" },
-    { name: "Fresh Kiwis", price: "₹200/kg", category: "Fruits", image: "https://source.unsplash.com/random/400x300/?kiwi" },
-    { name: "Organic Lentils", price: "₹80/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?lentils" },
-    { name: "Fresh Chickpeas", price: "₹90/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?chickpeas" },
-    { name: "Organic Barley", price: "₹50/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?barley" },
-    { name: "Fresh Quinoa", price: "₹120/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?quinoa" },
-    { name: "Organic Oats", price: "₹70/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?oats" },
-    { name: "Fresh Corn", price: "₹40/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?corn" },
-    { name: "Organic Millet", price: "₹60/kg", category: "Grains", image: "https://source.unsplash.com/random/400x300/?millet" },
-    { name: "Fresh Basil", price: "₹30/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?basil" },
-    { name: "Organic Kale", price: "₹50/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?kale" },
-    { name: "Fresh Mint", price: "₹20/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?mint" },
-    { name: "Organic Cilantro", price: "₹25/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?cilantro" },
-    { name: "Fresh Parsley", price: "₹30/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?parsley" },
-    { name: "Organic Arugula", price: "₹40/bunch", category: "Leafy Greens", image: "https://source.unsplash.com/random/400x300/?arugula" },
+    { name: "Fresh Tomatoes", price: "৳25/kg", category: "Vegetables", image: "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg" },
+    { name: "Organic Potatoes", price: "৳18/kg", category: "Vegetables", image: "https://images.pexels.com/photos/144248/potatoes-vegetables-erdfrucht-bio-144248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Premium Wheat", price: "৳30/kg", category: "Grains", image: "https://images.pexels.com/photos/54084/wheat-grain-agriculture-seed-54084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Sweet Carrots", price: "৳20/kg", category: "Vegetables", image: "https://images.pexels.com/photos/7543114/pexels-photo-7543114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Spinach", price: "৳15/bunch", category: "Leafy Greens", image: "https://images.pexels.com/photos/16731602/pexels-photo-16731602/free-photo-of-close-up-of-green-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Rice", price: "৳45/kg", category: "Grains", image: "https://images.pexels.com/photos/4187615/pexels-photo-4187615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Apples", price: "৳120/kg", category: "Fruits", image: "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Ripe Bananas", price: "৳40/kg", category: "Fruits", image: "https://images.pexels.com/photos/365810/pexels-photo-365810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Juicy Oranges", price: "৳80/kg", category: "Fruits", image: "https://images.pexels.com/photos/3584910/pexels-photo-3584910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Grapes", price: "৳150/kg", category: "Fruits", image: "https://images.pexels.com/photos/357742/pexels-photo-357742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Sweet Mangoes", price: "৳100/kg", category: "Fruits", image: "https://images.pexels.com/photos/30893227/pexels-photo-30893227/free-photo-of-freshly-harvested-mangoes-on-display.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Strawberries", price: "৳200/kg", category: "Fruits", image: "https://images.pexels.com/photos/106148/strawberries-fruit-red-sweet-106148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Crisp Cucumbers", price: "৳30/kg", category: "Vegetables", image: "https://images.pexels.com/photos/2329440/pexels-photo-2329440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Bell Peppers", price: "৳50/kg", category: "Vegetables", image: "https://images.pexels.com/photos/594137/pexels-photo-594137.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Onions", price: "৳35/kg", category: "Vegetables", image: "https://images.pexels.com/photos/15421637/pexels-photo-15421637/free-photo-of-onions-in-close-up-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Garlic", price: "৳60/kg", category: "Vegetables", image: "https://images.pexels.com/photos/1638522/pexels-photo-1638522.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Broccoli", price: "৳90/kg", category: "Vegetables", image: "https://images.pexels.com/photos/30931704/pexels-photo-30931704/free-photo-of-fresh-broccoli-at-kahramanmaras-market.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Cauliflower", price: "৳70/kg", category: "Vegetables", image: "https://images.pexels.com/photos/7572005/pexels-photo-7572005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Sweet Pineapples", price: "৳110/kg", category: "Fruits", image: "https://images.pexels.com/photos/2469772/pexels-photo-2469772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Papayas", price: "৳90/kg", category: "Fruits", image: "https://images.pexels.com/photos/28613331/pexels-photo-28613331/free-photo-of-close-up-of-fresh-papayas-with-juicy-orange-flesh.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Ripe Guavas", price: "৳60/kg", category: "Fruits", image: "https://images.pexels.com/photos/28056894/pexels-photo-28056894/free-photo-of-a-basket-full-of-green-fruit-and-a-bowl-of-sauce.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Pomegranates", price: "৳180/kg", category: "Fruits", image: "https://images.pexels.com/photos/15364750/pexels-photo-15364750/free-photo-of-close-up-of-pomegranates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Sweet Watermelons", price: "৳40/kg", category: "Fruits", image: "https://images.pexels.com/photos/7898007/pexels-photo-7898007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Kiwis", price: "৳200/kg", category: "Fruits", image: "https://images.pexels.com/photos/6316511/pexels-photo-6316511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Lentils", price: "৳80/kg", category: "Grains", image: "https://images.pexels.com/photos/14965274/pexels-photo-14965274/free-photo-of-dry-peas-seeds.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Fresh Chickpeas", price: "৳90/kg", category: "Grains", image: "https://images.pexels.com/photos/29060109/pexels-photo-29060109/free-photo-of-close-up-of-fresh-chickpeas-in-bulk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Barley", price: "৳50/kg", category: "Grains", image: "https://plus.unsplash.com/premium_photo-1705404738459-c4cb25ad7933?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { name: "Fresh Quinoa", price: "৳120/kg", category: "Grains", image: "https://www.brillante.es/wp-content/uploads/2024/10/beneficios-quinoa-cruda-960x533.jpg" },
+    { name: "Organic Oats", price: "৳70/kg", category: "Grains", image: "https://images.pexels.com/photos/22039740/pexels-photo-22039740/free-photo-of-mug-in-bag-of-oats.jpeg" },
+    { name: "Fresh Corn", price: "৳40/kg", category: "Grains", image: "https://images.pexels.com/photos/14171758/pexels-photo-14171758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Millet", price: "৳60/kg", category: "Grains", image: "https://media.licdn.com/dms/image/v2/D4D12AQFvEMwVCPZuXg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1730140372042?e=2147483647&v=beta&t=2JOBDfgMDEpAMN3YArxJcST_kvryz0foYc08NRWkKpI" },
+    { name: "Fresh Basil", price: "৳30/bunch", category: "Leafy Greens", image: "https://images.pexels.com/photos/12417454/pexels-photo-12417454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Kale", price: "৳50/bunch", category: "Leafy Greens", image: "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0MjQ2MDcyNjUzMTk0NzQ4/all-about-fruits-and-vegetables-kale.webp" },
+    { name: "Fresh Mint", price: "৳20/bunch", category: "Leafy Greens", image: "https://img.freepik.com/premium-photo/mint-leaves-sold-supermarket-selective-focus_136497-2565.jpg?w=740" },
+    { name: "Organic Cilantro", price: "৳25/bunch", category: "Leafy Greens", image: "https://img.freepik.com/premium-photo/market-stall-filled-fresh-cilantro-coriandrum-sativum-ready-buyers-with-focus-organic-produce_960396-886607.jpg?w=740" },
+    { name: "Fresh Parsley", price: "৳30/bunch", category: "Leafy Greens", image: "https://images.pexels.com/photos/16812120/pexels-photo-16812120/free-photo-of-heap-of-fresh-leaves-of-parsley.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    { name: "Organic Arugula", price: "৳40/bunch", category: "Leafy Greens", image: "https://northernwildflowers.ca/cdn/shop/products/RoquetteArugulashutterstock_1955364187_1024x1024@2x.jpg?v=1649172373" },
   ];
 
   const filteredProducts = products.filter(product => {
@@ -112,21 +112,21 @@ const KrishanBazer = () => {
     <Layout>
       <div className="min-h-screen bg-gradient-to-b from-[#0a1f1d] to-[#0d2a28] font-poppins text-white">
         {/* Hero Section with Background Image */}
-        <section className="relative h-96 flex items-center justify-center overflow-hidden bg-[url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center">
+        <section className="relative h-96 flex items-center justify-center overflow-hidden bg-[url('https://img.freepik.com/premium-photo/organic-fruit-vegtable-garden-background_641503-138747.jpg?w=740')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black/60" />
-          <div className="text-center z-10 p-6 max-w-4xl">
+          <div className="text-center z-10 p-6 max-w-8xl">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               <Typography 
-                variant="h2" 
+                variant="p2" 
                 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]"
                 style={{ textShadow: '0 0 15px rgba(0,255,136,0.5)' }}
               >
                 Direct from Farm to Your Home
-              </Typography>
+              </Typography> <br></br><br></br>
               <Typography variant="h6" className="mb-8 text-gray-300 text-xl">
                 Supporting Local Farmers, Providing Fresh Produce
               </Typography>
@@ -171,9 +171,9 @@ const KrishanBazer = () => {
 
         {/* Products Grid */}
         <section className="py-12 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
-          <Typography variant="h4" className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+          <Typography variant="p4" className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
             Fresh from Local Farms
-          </Typography>
+          </Typography> <br></br><br></br>
           
           <Grid container spacing={4}>
             {currentProducts.map((product, index) => (
@@ -195,7 +195,7 @@ const KrishanBazer = () => {
                       alt={product.name}
                     />
                     <CardContent className="bg-[#0d2a28]">
-                      <Typography variant="h6" className="font-bold text-[#00ff88]">
+                      <Typography variant="p6" className="font-bold text-[#ffffff]">
                         {product.name}
                       </Typography>
                       <div className="mt-2 flex justify-between items-center">
@@ -249,38 +249,39 @@ const KrishanBazer = () => {
         </section>
 
         {/* Farmer Benefits Section */}
-        <section className="py-16 bg-[#0d2a28]">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-            <Typography variant="h4" className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
-              Why Sell With Us?
-            </Typography>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { icon: <AgricultureIcon fontSize="large" />, title: 'Zero Commission', text: 'Keep 100% of your earnings with no middlemen' },
-                { icon: <LocalShippingIcon fontSize="large" />, title: 'Direct Market Access', text: 'Connect directly with buyers across your region' },
-                { icon: <SmartphoneIcon fontSize="large" />, title: 'Easy Management', text: 'Manage orders and payments through simple app' }
-              ].map((benefit, index) => (
-                <motion.div 
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-[#0a1f1d] p-6 rounded-xl shadow-2xl shadow-[#00ff88]/30 border border-[#00ff88]/20"
-                >
-                  <div className="text-4xl mb-4 text-[#00ff88] flex justify-center">
-                    {benefit.icon}
-                  </div>
-                  <Typography variant="h6" className="font-bold mb-2 text-[#00ff88] text-center">
-                    {benefit.title}
-                  </Typography>
-                  <Typography className="text-gray-300 text-center">
-                    {benefit.text}
-                  </Typography>
-                </motion.div>
-              ))}
+          <section className="py-16 bg-[#0d2a28]">
+            <div className="max-w-7xl text-center mx-auto px-4 md:px-8 lg:px-16">
+              <Typography variant="p1" className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+                Why Sell With Us? 
+              </Typography> <br></br><br></br>
+              <div className="mb-8"></div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+            { icon: <AgricultureIcon style={{ fontSize: '5rem' }} />, title: 'Zero Commission', text: 'Keep 100% of your earnings with no middlemen' },
+            { icon: <LocalShippingIcon style={{ fontSize: '5rem' }} />, title: 'Direct Market Access', text: 'Connect directly with buyers across your region' },
+            { icon: <SmartphoneIcon style={{ fontSize: '5rem' }} />, title: 'Easy Management', text: 'Manage orders and payments through simple app' }
+                ].map((benefit, index) => (
+            <motion.div 
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="bg-[#0a1f1d] p-6 rounded-xl shadow-2xl shadow-[#00ff88]/30 border border-[#00ff88]/20"
+            >
+              <div className="text-4xl mb-4 text-[#00ff88] flex justify-center">
+                {benefit.icon}
+              </div>
+              <Typography variant="h6" className="font-bold mb-2 text-[#00ff88] text-center">
+                {benefit.title}
+              </Typography>
+              <Typography className="text-gray-300 text-center">
+                {benefit.text}
+              </Typography>
+            </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Product Modal */}
+          {/* Product Modal */}
         <Modal
           open={Boolean(selectedProduct)}
           onClose={handleCloseModal}
@@ -308,15 +309,34 @@ const KrishanBazer = () => {
                   Category: {selectedProduct.category}
                 </Typography>
                 <TextField
-                  type="number"
-                  label="Quantity (kg)"
-                  variant="outlined"
-                  fullWidth
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  className="mb-4"
-                  InputProps={{ inputProps: { min: 1 } }}
-                />
+  type="number"
+  label="Quantity"
+  variant="outlined"
+  fullWidth
+  value={quantity}
+  onChange={(e) => setQuantity(e.target.value)}
+  className="mb-4"
+  inputProps={{ 
+    min: 1, 
+    max: 500 
+  }}
+  sx={{
+    '& .MuiOutlinedInput-input': {
+      color: 'white', // Set font color to white
+    },
+    '& .MuiInputLabel-root': {
+      color: 'white', // Set label color to white
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white', // Set border color to white
+      },
+      '&:hover fieldset': {
+        borderColor: 'white', // Set border color on hover
+      },
+    },
+  }}
+/>
                 <div className="flex gap-4">
                   <Button 
                     variant="contained"
@@ -337,30 +357,6 @@ const KrishanBazer = () => {
             )}
           </motion.div>
         </Modal>
-
-        {/* Footer */}
-        <footer className="bg-[#0a1f1d] py-8 border-t border-[#00ff88]/20">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 text-center">
-            <Typography className="mb-4 text-gray-300">
-              Empowering Farmers Since 2024
-            </Typography>
-            <div className="flex justify-center gap-4">
-              {['About Us', 'Contact', 'FAQs'].map((item, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <IconButton 
-                    className="text-gray-300 hover:text-[#00ff88] transition-colors duration-300"
-                  >
-                    <span className="text-sm">{item}</span>
-                  </IconButton>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </footer>
       </div>
     </Layout>
   )
