@@ -23,6 +23,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Marketplace from '../images/Marketplace.png';
 
 const KrishanBazer = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -112,7 +113,8 @@ const KrishanBazer = () => {
     <Layout>
       <div className="min-h-screen bg-gradient-to-b from-[#0a1f1d] to-[#0d2a28] font-poppins text-white">
         {/* Hero Section with Background Image */}
-        <section className="relative h-96 flex items-center justify-center overflow-hidden bg-[url('https://img.freepik.com/premium-photo/organic-fruit-vegtable-garden-background_641503-138747.jpg?w=740')] bg-cover bg-center">
+        <section className="relative h-96 flex items-center justify-center overflow-hidden bg-cover bg-center">
+          <img src = {Marketplace} alt = "Marketplace" className = "absolute inset-0 w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-black/60" />
           <div className="text-center z-10 p-6 max-w-8xl">
             <motion.div 
