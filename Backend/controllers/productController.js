@@ -1,10 +1,16 @@
 const Product = require('../models/Product');
+const upload = require('../utils/upload'); // Import the Multer configuration
 
 // Create Product
 const createProduct = async (req, res) => {
-  const { name, category, price, quantity, description, image } = req.body;
+  const { name, category, price, quantity, description } = req.body;
 
   try {
+    // Check if an image file was uploaded
+    if (!req.file) {
+      return res.status(400).json({ error: 'Image is required' });
+    }
+
     // Create a new product and associate it with the logged-in user (seller)
     const product = await Product.create({
       name,
@@ -12,7 +18,8 @@ const createProduct = async (req, res) => {
       price,
       quantity,
       description,
-      image,
+      image: req.file.path || req.file.url, // Ensures Cloudinary URL is stored
+
       seller: req.user.id, // Use req.user.id to associate the seller
     });
 

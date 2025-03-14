@@ -6,7 +6,7 @@ const ProductSchema = new mongoose.Schema({
   price: Number,
   quantity: Number,
   description: String,
-  image: String,
+  image: String, // Store the image URL
   seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   createdAt: { type: Date, default: Date.now }
 });
