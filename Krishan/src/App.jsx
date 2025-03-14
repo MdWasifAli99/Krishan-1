@@ -15,9 +15,13 @@ import PageNotFound from "./pages/PageNotFound";
 import HomeBlog1 from './pages/HomeBlog1'; 
 import FeatureBlog1 from './pages/FeatureBlog1';
 import FeatureBlog2 from './pages/FeatureBlog2';
+
+import ProfilePage from './pages/ProfilePage';
+
 import WeatherBlog1 from "./pages/WeatherBlog1";
 import WeatherBlog2 from "./pages/WeatherBlog2";
 import WeatherBlog3 from "./pages/WeatherBlog3";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -56,10 +60,11 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route element={<PrivateRoute />}>
           
+          
+          </Route>
           <Route path="/krishanbazer" element={<KrishanBazer />} />
           <Route path="/advice" element={<Advice />} />
-          </Route>
-
+          <Route path="/profile" element={<ProfilePage />} />
         
           <Route path="*" element={<PageNotFound />} />
         </Routes>
