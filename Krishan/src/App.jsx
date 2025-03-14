@@ -15,7 +15,13 @@ import PageNotFound from "./pages/PageNotFound";
 import HomeBlog1 from './pages/HomeBlog1'; 
 import FeatureBlog1 from './pages/FeatureBlog1';
 import FeatureBlog2 from './pages/FeatureBlog2';
+
 import ProfilePage from './pages/ProfilePage';
+
+import WeatherBlog1 from "./pages/WeatherBlog1";
+import WeatherBlog2 from "./pages/WeatherBlog2";
+import WeatherBlog3 from "./pages/WeatherBlog3";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -48,6 +54,9 @@ function App() {
           <Route path="/homeblog1" element={<HomeBlog1 />} />
           <Route path="/featureblog1" element={<FeatureBlog1 />} />
           <Route path="/featureblog2" element={<FeatureBlog2 />} />
+          <Route path="/weatherblog1" element={<WeatherBlog1 />} />
+          <Route path="/weatherblog2" element={<WeatherBlog2 />} />
+          <Route path="/weatherblog3" element={<WeatherBlog3 />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route element={<PrivateRoute />}>
           
