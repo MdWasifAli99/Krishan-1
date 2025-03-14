@@ -1,8 +1,104 @@
+<<<<<<< Updated upstream
 import Layout from '../components/Layout'
 import React from 'react'
 
 
 const KrishanBazer = () => {
+=======
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import Axios
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+import Layout from '../components/Layout';
+import { 
+  Button, 
+  Card, 
+  CardContent, 
+  CardMedia, 
+  Grid, 
+  Typography, 
+  InputBase,
+  Select,
+  MenuItem,
+  IconButton,
+  Modal,
+  Box,
+  TextField
+} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import { motion } from 'framer-motion';
+import AgricultureIcon from '@mui/icons-material/Agriculture';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+const KrishanBazer = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [products, setProducts] = useState([]); // State to store products from the backend
+  const productsPerPage = 8;
+  const navigate = useNavigate(); // Hook for navigation
+
+  // Fetch products from the backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/products'); // Adjust the endpoint as needed
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Failed to fetch products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Filter products based on search and category
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
+    return matchesSearch && matchesCategory;
+  });
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const paginate = (direction) => {
+    if (direction === 'next' && currentPage < Math.ceil(filteredProducts.length / productsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    } else if (direction === 'prev' && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setQuantity(1); // Reset quantity to 1 when a new product is selected
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+  };
+
+  const handlePaymentRedirect = (method) => {
+    if (method === 'bkash') {
+      window.location.href = 'https://www.bkash.com';
+    } else if (method === 'nagad') {
+      window.location.href = 'https://www.nagad.com.bd';
+    }
+  };
+
+  // Function to redirect to the Add Products page
+  const redirectToAddProducts = () => {
+    navigate('/addproduct'); // Adjust the route as needed
+  };
+
+>>>>>>> Stashed changes
   return (
     <Layout>
           <div className="bg-white font-sans text-gray-800">
@@ -49,10 +145,55 @@ const KrishanBazer = () => {
             <h3 className="font-bold mt-4">$5.99 - High-yield crop seeds</h3>
             <button className="mt-2 px-4 py-2 bg-black text-white rounded">Add to cart</button>
           </div>
+<<<<<<< Updated upstream
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <img src="path_to_image2.jpg" alt="Product 2" className="w-full h-48 object-cover rounded-t-lg" />
             <h3 className="font-bold mt-4">$6.99 - Organic fertilizers</h3>
             <button className="mt-2 px-4 py-2 bg-black text-white rounded">Add to cart</button>
+=======
+        </section>
+
+        {/* Search and Filters Section */}
+        <section className="py-8 px-4 md:px-8 lg:px-16 bg-[#0d2a28] sticky top-0 z-20 shadow-lg shadow-[#00ff88]/30">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div className="flex items-center bg-[#0d2a28] rounded-full shadow-lg shadow-[#00ff88]/30 w-full md:w-2/3 order-1">
+              <InputBase
+                placeholder="Search crops, vegetables..."
+                className="flex-1 px-6 py-3 text-lg text-white"
+                startAdornment={<SearchIcon className="text-[#00ff88] mx-3" />}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            <div className="flex gap-2 w-full md:w-1/3 justify-end order-2">
+              <Select
+                displayEmpty
+                className="bg-[#0d2a28] rounded-full shadow-lg shadow-[#00ff88]/30 text-white"
+                inputProps={{ 'aria-label': 'Filter' }}
+                IconComponent={FilterListIcon}
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                sx={{
+                  '& .MuiSelect-icon': { color: '#00ff88' },
+                  '& .MuiOutlinedInput-notchedOutline': { border: 'none' }
+                }}
+              >
+                <MenuItem value="">All Categories</MenuItem>
+                <MenuItem value="Vegetables">Vegetables</MenuItem>
+                <MenuItem value="Grains">Grains</MenuItem>
+                <MenuItem value="Leafy Greens">Leafy Greens</MenuItem>
+                <MenuItem value="Fruits">Fruits</MenuItem>
+              </Select>
+              {/* Add Products Button */}
+              <Button 
+                variant="contained" 
+                className="bg-gradient-to-r from-[#00ff88] to-[#00b8ff] hover:scale-105 text-black rounded-full px-4 py-2 transition-transform duration-300 shadow-lg shadow-[#00ff88]/30"
+                onClick={redirectToAddProducts}
+              >
+                Sell Product
+              </Button>
+            </div>
+>>>>>>> Stashed changes
           </div>
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <img src="path_to_image3.jpg" alt="Product 3" className="w-full h-48 object-cover rounded-t-lg" />
@@ -67,6 +208,7 @@ const KrishanBazer = () => {
         </div>
       </section>
 
+<<<<<<< Updated upstream
       {/* Expert Advice Section */}
       <section className="p-6 bg-white">
         <h2 className="text-2xl font-bold mb-4">Expert Advice</h2>
@@ -130,6 +272,117 @@ const KrishanBazer = () => {
             Join
           </button>
         </div>
+=======
+        {/* Farmer Benefits Section */}
+        <section className="py-16 bg-[#0d2a28]">
+          <div className="max-w-7xl text-center mx-auto px-4 md:px-8 lg:px-16">
+            <Typography variant="p1" className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+              Why Sell With Us? 
+            </Typography> <br></br><br></br>
+            <div className="mb-8"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { icon: <AgricultureIcon style={{ fontSize: '5rem' }} />, title: 'Zero Commission', text: 'Keep 100% of your earnings with no middlemen' },
+                { icon: <LocalShippingIcon style={{ fontSize: '5rem' }} />, title: 'Direct Market Access', text: 'Connect directly with buyers across your region' },
+                { icon: <SmartphoneIcon style={{ fontSize: '5rem' }} />, title: 'Easy Management', text: 'Manage orders and payments through simple app' }
+              ].map((benefit, index) => (
+                <motion.div 
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-[#0a1f1d] p-6 rounded-xl shadow-2xl shadow-[#00ff88]/30 border border-[#00ff88]/20"
+                >
+                  <div className="text-4xl mb-4 text-[#00ff88] flex justify-center">
+                    {benefit.icon}
+                  </div>
+                  <Typography variant="h6" className="font-bold mb-2 text-[#00ff88] text-center">
+                    {benefit.title}
+                  </Typography>
+                  <Typography className="text-gray-300 text-center">
+                    {benefit.text}
+                  </Typography>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Product Modal */}
+        <Modal
+          open={Boolean(selectedProduct)}
+          onClose={handleCloseModal}
+          className="flex items-center justify-center p-4"
+        >
+          <motion.div 
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-[#0d2a28] rounded-2xl p-8 max-w-md w-full border border-[#00ff88]/30"
+          >
+            {selectedProduct && (
+              <>
+                <Typography variant="h5" className="text-[#00ff88] mb-4">
+                  {selectedProduct.name}
+                </Typography>
+                <img 
+                  src={selectedProduct.image} 
+                  alt={selectedProduct.name} 
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <Typography className="text-gray-300 mb-2">
+                  Price: {selectedProduct.price}
+                </Typography>
+                <Typography className="text-gray-300 mb-4">
+                  Category: {selectedProduct.category}
+                </Typography>
+                <TextField
+                  type="number"
+                  label="Quantity"
+                  variant="outlined"
+                  fullWidth
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                  className="mb-4"
+                  inputProps={{ 
+                    min: 1, 
+                    max: 500 
+                  }}
+                  sx={{
+                    '& .MuiOutlinedInput-input': {
+                      color: 'white', // Set font color to white
+                    },
+                    '& .MuiInputLabel-root': {
+                      color: 'white', // Set label color to white
+                    },
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': {
+                        borderColor: 'white', // Set border color to white
+                      },
+                      '&:hover fieldset': {
+                        borderColor: 'white', // Set border color on hover
+                      },
+                    },
+                  }}
+                />
+                <div className="flex gap-4">
+                  <Button 
+                    variant="contained"
+                    className="w-full bg-gradient-to-r from-[#00ff88] to-[#00b8ff] text-black rounded-full py-3"
+                    onClick={() => handlePaymentRedirect('bkash')}
+                  >
+                    Pay with bKash
+                  </Button>
+                  <Button 
+                    variant="contained"
+                    className="w-full bg-gradient-to-r from-[#00ff88] to-[#00b8ff] text-black rounded-full py-3"
+                    onClick={() => handlePaymentRedirect('nagad')}
+                  >
+                    Pay with Nagad
+                  </Button>
+                </div>
+              </>
+            )}
+          </motion.div>
+        </Modal>
+>>>>>>> Stashed changes
       </div>
 
       {/* Footer Links */}

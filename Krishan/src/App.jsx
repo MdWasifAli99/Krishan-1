@@ -17,6 +17,7 @@ import FeatureBlog1 from './pages/FeatureBlog1';
 import FeatureBlog2 from './pages/FeatureBlog2';
 
 import ProfilePage from './pages/ProfilePage';
+import AddProduct from './pages/AddProduct';
 
 import WeatherBlog1 from "./pages/WeatherBlog1";
 import WeatherBlog2 from "./pages/WeatherBlog2";
@@ -65,6 +66,7 @@ function App() {
           <Route path="/krishanbazer" element={<KrishanBazer />} />
           <Route path="/advice" element={<Advice />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/addproduct" element={<AddProduct />} />
         
           <Route path="*" element={<PageNotFound />} />
         </Routes>
