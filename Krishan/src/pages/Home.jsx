@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 import Layout from '../components/Layout';
 import { Link } from "react-router-dom";
 import farmer from '../images/farmer.png';
