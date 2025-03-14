@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-import Layout from '../components/Layout'
-import React from 'react'
-
-
-const KrishanBazer = () => {
-=======
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import Axios
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
@@ -98,59 +91,30 @@ const KrishanBazer = () => {
     navigate('/addproduct'); // Adjust the route as needed
   };
 
->>>>>>> Stashed changes
   return (
     <Layout>
-          <div className="bg-white font-sans text-gray-800">
-      {/* Search Section */}
-      <section className="p-10 bg-gray-100 text-center">
-        <h1 className="text-3xl font-bold mb-4">Get real-time market updates for your crops</h1>
-        <p className="text-xl mb-4">Browse articles and ask questions to our experts</p>
-        <div className="flex justify-center">
-          <input
-            type="text"
-            className="px-6 py-2 rounded-l-lg border-2 border-gray-300 focus:outline-none"
-            placeholder="Enter your market query here"
-          />
-          <button className="px-6 py-2 bg-black text-white rounded-r-lg">Search</button>
-        </div>
-      </section>
-
-      {/* Market Monitoring Section */}
-      <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-6 bg-white">
-        <div className="text-center">
-          <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4"></div>
-          <h3 className="font-bold">Crop Prices</h3>
-        </div>
-        <div className="text-center">
-          <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4"></div>
-          <h3 className="font-bold">Expert Advice</h3>
-        </div>
-        <div className="text-center">
-          <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4"></div>
-          <h3 className="font-bold">User Profiles</h3>
-        </div>
-        <div className="text-center">
-          <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4"></div>
-          <h3 className="font-bold">Secure Login</h3>
-        </div>
-      </section>
-
-      {/* Featured Products Section */}
-      <section className="p-6 bg-gray-100">
-        <h2 className="text-2xl font-bold mb-4">Featured Products</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image1.jpg" alt="Product 1" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">$5.99 - High-yield crop seeds</h3>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Add to cart</button>
+      <div className="min-h-screen bg-gradient-to-b from-[#0a1f1d] to-[#0d2a28] font-poppins text-white">
+        {/* Hero Section with Background Image */}
+        <section className="relative h-96 flex items-center justify-center overflow-hidden bg-[url('https://img.freepik.com/premium-photo/organic-fruit-vegtable-garden-background_641503-138747.jpg?w=740')] bg-cover bg-center">
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="text-center z-10 p-6 max-w-8xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Typography 
+                variant="p2" 
+                className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]"
+                style={{ textShadow: '0 0 15px rgba(0,255,136,0.5)' }}
+              >
+                Direct from Farm to Your Home
+              </Typography> <br></br><br></br>
+              <Typography variant="h6" className="mb-8 text-gray-300 text-xl">
+                Supporting Local Farmers, Providing Fresh Produce
+              </Typography>
+            </motion.div>
           </div>
-<<<<<<< Updated upstream
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image2.jpg" alt="Product 2" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">$6.99 - Organic fertilizers</h3>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Add to cart</button>
-=======
         </section>
 
         {/* Search and Filters Section */}
@@ -193,86 +157,88 @@ const KrishanBazer = () => {
                 Sell Product
               </Button>
             </div>
->>>>>>> Stashed changes
           </div>
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image3.jpg" alt="Product 3" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">$7.99 - Smart irrigation system</h3>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Add to cart</button>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image4.jpg" alt="Product 4" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">$9.99 - Precision farming equipment</h3>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Add to cart</button>
-          </div>
-        </div>
-      </section>
+        </section>
 
-<<<<<<< Updated upstream
-      {/* Expert Advice Section */}
-      <section className="p-6 bg-white">
-        <h2 className="text-2xl font-bold mb-4">Expert Advice</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
-            <h3 className="font-bold">Crop cultivation tips</h3>
-            <p className="text-gray-700">Learn about crop cultivation techniques for better yields.</p>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Read More</button>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
-            <h3 className="font-bold">Livestock essentials</h3>
-            <p className="text-gray-700">Essential equipment for raising healthy livestock.</p>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Discover</button>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
-            <h3 className="font-bold">Soil management advice</h3>
-            <p className="text-gray-700">Understand soil health and its impact on crops.</p>
-            <button className="mt-2 px-4 py-2 bg-black text-white rounded">Learn More</button>
-          </div>
-        </div>
-      </section>
+        {/* Products Grid */}
+        <section className="py-12 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+          <Typography variant="p4" className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+            Fresh from Local Farms
+          </Typography> <br></br><br></br>
+          
+          <Grid container spacing={4}>
+            {currentProducts.map((product, index) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                <motion.div 
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="h-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  onClick={() => handleProductClick(product)}
+                >
+                  <Card className="h-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 bg-[#0d2a28] border border-[#00ff88]/20 group relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#00ff8820] to-[#00b8ff20] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <CardMedia
+                      component="img"
+                      image={product.image}
+                      className="h-48 object-cover"
+                      alt={product.name}
+                    />
+                    <CardContent className="bg-[#0d2a28]">
+                      <Typography variant="p6" className="font-bold text-[#ffffff]">
+                        {product.name}
+                      </Typography>
+                      <div className="mt-2 flex justify-between items-center">
+                        <Typography className="text-[#00ff88] font-bold text-lg">
+                          {product.price}
+                        </Typography>
+                        <Button 
+                          variant="contained" 
+                          className="bg-gradient-to-r from-[#00ff88] to-[#00b8ff] hover:scale-105 text-black rounded-full px-4 py-2 transition-transform duration-300 shadow-lg shadow-[#00ff88]/30"
+                        >
+                          Buy Now
+                        </Button>
+                      </div>
+                      <div className="mt-2 text-sm text-gray-300">
+                        {product.category}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
 
-      {/* Article Section */}
-      <section className="p-6 bg-gray-100">
-        <h2 className="text-2xl font-bold mb-4">Explore our articles</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image5.jpg" alt="Livestock care" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">5 Tips on Livestock Care</h3>
-            <p className="text-gray-700">Get expert advice on livestock care for better yields.</p>
+          {/* Pagination */}
+          <div className="flex justify-center gap-4 mt-12">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={`px-6 py-2 rounded-full ${
+                currentPage === 1 
+                  ? 'bg-[#0d2a28] text-white border border-[#00ff88] cursor-not-allowed'
+                  : 'bg-gradient-to-r from-[#00ff88] to-[#00b8ff] text-black cursor-pointer'
+              }`}
+              onClick={() => paginate('prev')}
+            >
+              <ArrowBackIosIcon />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={`px-6 py-2 rounded-full ${
+                currentPage === Math.ceil(filteredProducts.length / productsPerPage)
+                  ? 'bg-[#0d2a28] text-white border border-[#00ff88] cursor-not-allowed'
+                  : 'bg-gradient-to-r from-[#00ff88] to-[#00b8ff] text-black cursor-pointer'
+              }`}
+              onClick={() => paginate('next')}
+            >
+              <ArrowForwardIosIcon />
+            </motion.div>
           </div>
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image6.jpg" alt="Crop cultivation" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">10 Tips for Growing Healthy Crops</h3>
-            <p className="text-gray-700">Expert advice for successful crop cultivation.</p>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <img src="path_to_image7.jpg" alt="Farming tips" className="w-full h-48 object-cover rounded-t-lg" />
-            <h3 className="font-bold mt-4">Essential Farming Equipment</h3>
-            <p className="text-gray-700">Make sure you have the right tools for efficient farming.</p>
-          </div>
-        </div>
-      </section>
-    </div>
-     {/* Footer */}
-     <footer className="bg-green-50 border-t border-gray-200 mt-10">
-  <div className="max-w-7xl mx-auto px-4 py-8">
-    <div className="flex flex-col md:flex-row md:justify-between md:items-start space-y-8 md:space-y-0">
-      {/* Newsletter */}
-      <div className="md:w-1/2 lg:w-1/3 space-y-2">
-        <h3 className="text-sm font-semibold text-gray-700">
-          Subscribe to our newsletter for the latest updates on features and releases
-        </h3>
-        <div className="flex">
-          <input
-            type="email"
-            placeholder="Your Email Here"
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-green-600"
-          />
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r">
-            Join
-          </button>
-        </div>
-=======
+        </section>
+
         {/* Farmer Benefits Section */}
         <section className="py-16 bg-[#0d2a28]">
           <div className="max-w-7xl text-center mx-auto px-4 md:px-8 lg:px-16">
@@ -382,70 +348,9 @@ const KrishanBazer = () => {
             )}
           </motion.div>
         </Modal>
->>>>>>> Stashed changes
       </div>
-
-      {/* Footer Links */}
-      <div className="flex flex-wrap md:w-1/2 lg:w-2/3 justify-between">
-        {/* Resources */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Resources</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#about" className="hover:text-green-600">About</a>
-            </li>
-            <li>
-              <a href="#blog" className="hover:text-green-600">Blog Posts</a>
-            </li>
-            <li>
-              <a href="#help" className="hover:text-green-600">Help Center</a>
-            </li>
-            <li>
-              <a href="#community" className="hover:text-green-600">Community</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Connect With Us */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Connect With Us</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#facebook" className="hover:text-green-600">Facebook Page</a>
-            </li>
-            <li>
-              <a href="#instagram" className="hover:text-green-600">Instagram Feed</a>
-            </li>
-            <li>
-              <a href="#twitter" className="hover:text-green-600">Twitter</a>
-            </li>
-            <li>
-              <a href="#linkedin" className="hover:text-green-600">LinkedIn</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Legal Links */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Legal Links</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#privacy" className="hover:text-green-600">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#terms" className="hover:text-green-600">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#cookie" className="hover:text-green-600">Cookie Settings</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>  
     </Layout>
   )
 }
 
-export default KrishanBazer
+export default KrishanBazer;
