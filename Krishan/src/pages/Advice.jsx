@@ -15,6 +15,7 @@ import {
   CircularProgress,
   Snackbar,
   Alert,
+  Grid,
 } from "@mui/material";
 
 const Advice = () => {
@@ -85,95 +86,110 @@ const Advice = () => {
 
   return (
     <Layout>
-      <Container maxWidth="md">
-        {/* Page Title */}
-        <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mt: 4 }}>
-          Advice Board
-        </Typography>
-
-        {/* Form to Post New Advice */}
-        <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
-          <Typography variant="h6" component="h2" gutterBottom>
-            Post New Advice
+      {/* Set the background color of the entire page to black */}
+      <Box sx={{ background: 'rgba(14, 31, 29, 0.9)', minHeight: '100vh', padding: '20px 0' }}>
+        <Container maxWidth="lg">
+          {/* Page Title */}
+          <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mt: 4, color: '#00ff88' }} className="font-poppins bg-gradient-to-b from-[#0a1f1d] to-[#0d2a28]">
+            Advice Board
           </Typography>
-          <form onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              label="Title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              margin="normal"
-              required
-            />
-            <TextField
-              fullWidth
-              label="Content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              margin="normal"
-              multiline
-              rows={4}
-              required
-            />
-            {error && (
-              <Typography color="error" sx={{ mt: 2 }}>
-                {error}
-              </Typography>
-            )}
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              sx={{ mt: 2 }}
-            >
-              Submit
-            </Button>
-          </form>
-        </Paper>
 
-        {/* Display Advice List */}
-        <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="h6" component="h2" gutterBottom>
-            Advice List
-          </Typography>
-          {loading ? (
-            <Box display="flex" justifyContent="center" sx={{ mt: 4 }}>
-              <CircularProgress />
-            </Box>
-          ) : (
-            <List>
-              {adviceList.map((advice) => (
-                <ListItem key={advice._id} sx={{ mb: 2 }}>
-                  <ListItemText
-                    primary={advice.title}
-                    secondary={
-                      <>
-                        <Typography variant="body2" color="text.secondary">
-                          {advice.content}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          By: {advice.author?.name || "Unknown"}
-                        </Typography>
-                      </>
-                    }
+          <Grid container spacing={4} sx={{ mt: 4 }}>
+            {/* Left Side: Advice List */}
+            <Grid item xs={12} md={7}>
+              <Paper elevation={3} sx={{ p: 3, backgroundColor: '#0a2f2c', border: '2px solid #00ff88', borderRadius: '12px', transition: 'all 0.3s', '&:hover': { borderColor: '#00b8ff' } }}>
+                <Typography variant="h6" component="h2" gutterBottom sx={{ color: '#00ff88' }}>
+                  Advice List
+                </Typography>
+                {loading ? (
+                  <Box display="flex" justifyContent="center" sx={{ mt: 4 }}>
+                    <CircularProgress sx={{ color: '#00ff88' }} />
+                  </Box>
+                ) : (
+                  <List>
+                    {adviceList.map((advice) => (
+                      <ListItem key={advice._id} sx={{ mb: 2, backgroundColor: '#0a2f2c', border: '1px solid #00ff88', borderRadius: '8px', transition: 'all 0.3s', '&:hover': { borderColor: '#00b8ff' } }}>
+                        <ListItemText
+                          primary={
+                            <Typography variant="body1" sx={{ color: '#00ff88' }}>
+                              {advice.title}
+                            </Typography>
+                          }
+                          secondary={
+                            <>
+                              <Typography variant="body2" sx={{ color: '#00ff88' }}>
+                                {advice.content}
+                              </Typography>
+                              <Typography variant="caption" sx={{ color: '#00ff88' }}>
+                                By: {advice.author?.name || "Unknown"}
+                              </Typography>
+                            </>
+                          }
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
+              </Paper>
+            </Grid>
+
+            {/* Right Side: Advice Form */}
+            <Grid item xs={12} md={5}>
+              <Paper elevation={3} sx={{ p: 3, backgroundColor: '#0a2f2c', border: '2px solid #00ff88', borderRadius: '12px', transition: 'all 0.3s', '&:hover': { borderColor: '#00b8ff' } }}>
+                <Typography variant="h6" component="h2" gutterBottom sx={{ color: '#00ff88' }}>
+                  Post New Advice
+                </Typography>
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    fullWidth
+                    label="Title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    margin="normal"
+                    required
+                    sx={{ backgroundColor: '#0a2f2c', borderRadius: '8px', '& .MuiInputBase-root': { color: '#00ff88' }, '& .MuiInputLabel-root': { color: '#00ff88' } }}
                   />
-                </ListItem>
-              ))}
-            </List>
-          )}
-        </Paper>
+                  <TextField
+                    fullWidth
+                    label="Content"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    margin="normal"
+                    multiline
+                    rows={4}
+                    required
+                    sx={{ backgroundColor: '#0a2f2c', borderRadius: '8px', '& .MuiInputBase-root': { color: '#00ff88' }, '& .MuiInputLabel-root': { color: '#00ff88' } }}
+                  />
+                  {error && (
+                    <Typography color="error" sx={{ mt: 2, color: '#ff4444' }}>
+                      {error}
+                    </Typography>
+                  )}
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    sx={{ mt: 2, backgroundColor: '#00ff88', color: '#0a2f2c', '&:hover': { backgroundColor: '#00b8ff' } }}
+                  >
+                    Submit
+                  </Button>
+                </form>
+              </Paper>
+            </Grid>
+          </Grid>
 
-        {/* Success Snackbar */}
-        <Snackbar
-          open={snackbarOpen}
-          autoHideDuration={3000}
-          onClose={handleCloseSnackbar}
-        >
-          <Alert onClose={handleCloseSnackbar} severity="success">
-            Advice posted successfully!
-          </Alert>
-        </Snackbar>
-      </Container>
+          {/* Success Snackbar */}
+          <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={3000}
+            onClose={handleCloseSnackbar}
+          >
+            <Alert onClose={handleCloseSnackbar} severity="success" sx={{ backgroundColor: '#00ff88', color: '#0a2f2c' }}>
+              Advice posted successfully!
+            </Alert>
+          </Snackbar>
+        </Container>
+      </Box>
     </Layout>
   );
 };
