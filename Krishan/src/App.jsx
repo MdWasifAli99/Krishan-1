@@ -61,15 +61,17 @@ function App() {
           <Route path="/weatherblog2" element={<WeatherBlog2 />} />
           <Route path="/weatherblog3" element={<WeatherBlog3 />} />
           <Route path="/communityblogpage1" element={<CommunityBlogPage1 />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+         
           <Route element={<PrivateRoute />}>
-          
-          
-          </Route>
-          <Route path="/krishanbazer" element={<KrishanBazer />} />
+
           <Route path="/advice" element={<Advice />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          
+          </Route>
+          <Route path="/krishanbazer" element={<KrishanBazer />} />
+          
           <Route path="/aichatbot" element={<AiChatbot />} />
         
           <Route path="*" element={<PageNotFound />} />
