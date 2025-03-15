@@ -13,6 +13,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../images/KrishanLogo.png';
+import { useNavigate } from 'react-router-dom';
 
 // Define pages and settings
 const pages = [
@@ -50,8 +51,10 @@ function ResponsiveAppBar() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from local storage
-    window.location.reload(); // Refresh the page to update the UI
+    localStorage.removeItem('token');
+    const navigate = useNavigate();
+    navigate('/');
+  
   };
 
   return (

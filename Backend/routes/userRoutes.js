@@ -1,5 +1,5 @@
 const express = require('express');
-const { registerUser, loginUser, logoutUser, getUserProfile } = require('../controllers/userController');
+const { registerUser, loginUser, logoutUser, getUserProfile, updateUserProfile } = require('../controllers/userController');
 const { protect } = require('../middlewares/authMiddleware'); // Protect middleware to secure routes
 
 const router = express.Router();
@@ -15,5 +15,6 @@ router.post('/logout', logoutUser);
 
 // Route for getting the user profile (protected route)
 router.get('/profile', protect, getUserProfile);
+router.put('/update', protect, updateUserProfile);
 
 module.exports = router;

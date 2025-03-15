@@ -15,8 +15,10 @@ import PageNotFound from "./pages/PageNotFound";
 import HomeBlog1 from './pages/HomeBlog1'; 
 import FeatureBlog1 from './pages/FeatureBlog1';
 import FeatureBlog2 from './pages/FeatureBlog2';
+import CommunityBlogPage1 from './pages/CommunityBlogPage1';
 
 import ProfilePage from './pages/ProfilePage';
+import AddProduct from './pages/AddProduct';
 
 import WeatherBlog1 from "./pages/WeatherBlog1";
 import WeatherBlog2 from "./pages/WeatherBlog2";
@@ -57,6 +59,7 @@ function App() {
           <Route path="/weatherblog1" element={<WeatherBlog1 />} />
           <Route path="/weatherblog2" element={<WeatherBlog2 />} />
           <Route path="/weatherblog3" element={<WeatherBlog3 />} />
+          <Route path="/communityblogpage1" element={<CommunityBlogPage1 />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route element={<PrivateRoute />}>
           
@@ -65,6 +68,7 @@ function App() {
           <Route path="/krishanbazer" element={<KrishanBazer />} />
           <Route path="/advice" element={<Advice />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/addproduct" element={<AddProduct />} />
         
           <Route path="*" element={<PageNotFound />} />
         </Routes>
