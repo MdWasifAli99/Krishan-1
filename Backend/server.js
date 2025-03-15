@@ -14,9 +14,11 @@ const lusca = require("lusca");
 const morgan = require("morgan");
 const winston = require("winston");
 const session = require("express-session");
+//const { OpenAI } = require('openai');
 
 // ✅ Initialize Express App
 const app = express();
+
 
 // 🌱 Logging Requests with Winston
 const logger = winston.createLogger({
@@ -117,6 +119,11 @@ app.use("/api/products", productRoutes);
 app.use("/api/advice", adviceRoutes);
 app.use("/api/weather", weatherRoutes);
 app.use("/api/insights", insightsRoutes);
+
+
+
+
+
 
 // ⚠️ Global Error Handler
 app.use((err, req, res, next) => {

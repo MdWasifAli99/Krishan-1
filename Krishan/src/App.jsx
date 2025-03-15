@@ -9,6 +9,7 @@ import Insights from "./pages/Insights";
 import Weather from "./pages/Weather";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import AiChatbot from "./pages/AiChatbot";
 import Dashboard from "./pages/Dashboard";
 import KrishanBazer from "./pages/KrishanBazer";
 import PageNotFound from "./pages/PageNotFound";
@@ -69,6 +70,7 @@ function App() {
           <Route path="/advice" element={<Advice />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/aichatbot" element={<AiChatbot />} />
         
           <Route path="*" element={<PageNotFound />} />
         </Routes>

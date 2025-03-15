@@ -29,6 +29,7 @@ const pages = [
 const settings = [
   { name: 'Profile', path: '/profile' },
   { name: 'Dashboard', path: '/dashboard' },
+  //{ name: 'Ai Chatbot', path: '/aichatbot' },
   { name: 'Logout', path: '/' }, // Logout doesn't need a path
 ];
 
