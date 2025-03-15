@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, List, ListItem, ListItemText } from "@mui/material";
+import Layout from '../components/Layout';
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
 import {
@@ -60,6 +61,7 @@ const Insights = () => {
   };
 
   return (
+    <Layout>
     <div style={{ padding: "20px" }}>
       {/* Graph Section */}
       <Card style={{ marginBottom: "20px" }}>
@@ -90,6 +92,7 @@ const Insights = () => {
         </CardContent>
       </Card>
     </div>
+    </Layout>
   );
 };
 
