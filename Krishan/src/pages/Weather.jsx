@@ -1,78 +1,140 @@
-// src/pages/Weather.jsx
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from '../components/Layout';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Thermostat, WaterDrop, Cloud, WbSunny, Warning } from '@mui/icons-material'; // MUI Icons
+import '../App.css';
 
 const Weather = () => {
+
+      const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+
+  // Update the current time every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-   <Layout>
-    <div className="bg-gray-100 text-gray-800">
-      {/* Hero Section */}
-      <section className="bg-black text-white py-20 px-5 text-center">
-        <h1 className="text-4xl font-bold mb-4">Stay Ahead with Real-Time Weather Insights</h1>
-        <p className="mb-6">Weather plays a crucial role in farming success. Our Weather Info page provides farmers with essential updates and forecasts tailored specifically for agricultural needs.</p>
-        <div className="space-x-4">
-         <Link to="/signup"><button className="bg-white text-black py-2 px-6 rounded-lg">Get Started</button></Link>
-         <Link to="/weatherblog1"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button></Link>
-        </div>
-      </section>
-
-      {/* Info Sections */}
-      <section className="py-16 px-5 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white p-8 shadow-lg rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Stay Updated with Real-Time Weather Insights</h2>
-          <img src="/w1.png" alt="Real-Time Weather Insights" className="mb-4 rounded-lg" />
-          <p className="mb-4">Access our interactive map for the latest weather updates tailored for farmers. Plan your agricultural activities with confidence using our precise forecasts.</p>
-          <ul className="list-disc list-inside mb-4">
-            <li><strong>Current Conditions:</strong> Real-time weather data to safeguard your crops.</li>
-            <li><strong>Planning Tools:</strong> Tailored advice for planning and harvesting.</li>
-          </ul>
-          <Link to="/weatherblog2"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button></Link>
-        </div>
-
-        <div className="bg-white p-8 shadow-lg rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Tailored Weather Forecasts for Your Farming Needs</h2>
-          <img src="/w2.png" alt="Farming Weather Forecast" className="mb-4 rounded-lg" />
-          <p className="mb-4">Our weather forecasts are specifically designed for farmers, providing crucial insights for effective planning.</p>
-          <ul className="list-disc list-inside mb-4">
-            <li><strong>Weather Alerts:</strong> Immediate alerts for extreme weather events.</li>
-            <li><strong>Planning Tools:</strong> Optimize planting and harvesting schedules.</li>
-          </ul>
-          <Link to="/weatherblog3"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Learn More</button></Link>
+    <Layout>
+      <div className="font-poppins bg-gradient-to-b from-[#0a1f1d] to-[#0d2a28] text-white">
+        {/* Header */}
+        <div className="bg-[#0a2f2c] p-6 flex justify-between items-center shadow-lg">
+          <p1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+            Weather Info
+          </p1>
+          <div className="space-x-6" >
+            <Link
+              to="/weatherblog2"
+              className="text-white hover:text-[#ffffff] transition-all duration-300" style={{ textDecoration: 'none' }}
+            >
+              Interactive Map
+            </Link>
+            <Link
+              to="/weatherblog3"
+              className="text-white hover:text-[#ffffff] transition-all duration-300"
+              style={{ textDecoration: 'none' }}
+            >
+              Forecasts
+            </Link>
+            <Link
+              to="/crop-advice"
+              className="text-white hover:text-[#ffffff] transition-all duration-300" style={{ textDecoration: 'none' }}
+            >
+              Crop Advice
+            </Link>
+          </div>
         </div>
 
-        <div className="bg-white p-8 shadow-lg rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Weekly Weather Summary</h2>
-          <img src="/w3.png" alt="Weekly Weather Summary" className="mb-4 rounded-lg" />
-          <p className="mb-4">Get a detailed weekly weather summary to better plan your farming activities. Know the temperature trends, precipitation forecasts, and wind conditions.</p>
-          <ul className="list-disc list-inside mb-4">
-            <li><strong>Temperature Trends:</strong> Daily high and low temperatures.</li>
-            <li><strong>Precipitation:</strong> Rainfall predictions for the upcoming week.</li>
-            <li><strong>Wind Conditions:</strong> Wind speed and direction forecasts.</li>
-          </ul>
-          <Link to="/signup"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Explore More</button></Link>
-        </div>
+        {/* Hero Section */}
+        <section className="relative py-16 px-6 md:px-12 lg:px-24 text-center">
+          <p2 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff] animate-pulse">
+            Live Weather Update
+          </p2> <br></br><br></br><br></br>
+          <div className="bg-[#0a2f2c] p-8 rounded-2xl shadow-2xl inline-block border-2 border-[#00ff88]/20 hover:border-[#00b8ff] transition-all">
+            <p className="text-xl mb-4">Region: Rangpur</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="p-4 bg-[#0d2a28] rounded-lg">
+                <Thermostat className="text-4xl text-[#00ff88] mb-2" />
+                <p className="text-2xl font-mono">22°C</p>
+                <p className="text-sm text-gray-400">Temperature</p>
+              </div>
+              <div className="p-4 bg-[#0d2a28] rounded-lg">
+                <WaterDrop className="text-4xl text-[#00b8ff] mb-2" />
+                <p className="text-2xl font-mono">65%</p>
+                <p className="text-sm text-gray-400">Humidity</p>
+              </div>
+              <div className="p-4 bg-[#0d2a28] rounded-lg">
+                <Cloud className="text-4xl text-[#00ff88] mb-2" />
+                <p className="text-2xl font-mono">15 km/h</p>
+                <p className="text-sm text-gray-400">Wind Speed</p>
+              </div>
+              <div className="p-4 bg-[#0d2a28] rounded-lg">
+                <WbSunny className="text-4xl text-[#00b8ff] mb-2" />
+                <p className="text-2xl font-mono">Sunny</p>
+                <p className="text-sm text-gray-400">Forecast</p>
+              </div>
+            </div>
+          </div> <br></br><br></br><br></br>
 
-        <div className="bg-white p-8 shadow-lg rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Extreme Weather Warnings</h2>
-          <img src="/w4.png" alt="Extreme Weather Warnings" className="mb-4 rounded-lg" />
-          <p className="mb-4">Stay prepared for unexpected extreme weather events. Get real-time warnings for storms, floods, and droughts.</p>
-          <ul className="list-disc list-inside mb-4">
-            <li><strong>Storm Alerts:</strong> Early notifications about upcoming storms.</li>
-            <li><strong>Flood Warnings:</strong> Updates on potential flood risks.</li>
-            <li><strong>Drought Alerts:</strong> Warnings about prolonged dry spells.</li>
-          </ul>
-          <Link to="/signup"><button className="bg-green-600 text-white py-2 px-6 rounded-lg">Get Alerts</button></Link>
-        </div>
-      </section>
+          {/* Live Current Time */}
+            <div className=" p-8  border-[#00ff88]/20 hover:border-[#00b8ff] transition-all mt-8">
+              <h3 className="text-xl font-bold mb-4">Dhaka, Bangladesh</h3>
+              <div className="text-7xl font-mono text-[#00ff88]">
+                {currentTime}
+              </div>
+            </div>
 
-      {/* Weather Alerts Section */}
-      
-    </div>
-    {/* Footer */}
-    
-   </Layout>
-  )
-}
+        </section>
+
+        
+
+        {/* Weather Alerts Section */}
+        <section className="py-8 px-6 md:px-12 lg:px-24 text-center">
+          <p2 className="text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+            Weather Alerts
+          </p2> <br></br><br></br><br></br><br></br>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-6 bg-[#0a2f2c] rounded-2xl border-2 border-[#00ff88]/20 hover:border-[#00b8ff] transition-all shadow-2xl shadow-[#00ff88]/10">
+              <Warning className="text-4xl text-[#00b8ff] mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Storm Alerts</h3>
+              <p className="text-gray-300 mb-4">Early notifications about upcoming storms.</p>
+              <div className="p-4 bg-[#0d2a28] rounded-lg">
+                <p className="text-sm text-gray-400">Storm expected in 48 hours. Prepare now.</p>
+              </div>
+            </div>
+            <div className="p-6 bg-[#0a2f2c] rounded-2xl border-2 border-[#00ff88]/20 hover:border-[#00b8ff] transition-all shadow-2xl shadow-[#00ff88]/10">
+              <Warning className="text-4xl text-[#00ff88] mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Flood Warnings</h3>
+              <p className="text-gray-300 mb-4">Updates on potential flood risks.</p>
+              <div className="p-4 bg-[#0d2a28] rounded-lg">
+                <p className="text-sm text-gray-400">Flood warning for the weekend. Stay alert.</p>
+              </div>
+            </div>
+          </div>
+        </section> <br></br><br></br>
+
+        <section className="bg-gradient-to-r from-[#00ff88] to-[#00b8ff] py-24 px-6 md:px-12 lg:px-24 text-center">
+                         <p2 className="text-4xl md:text-5xl font-bold mb-10 text-black">Get weather alerts!</p2><br></br><br></br>
+                         <p className="text-lg mb-12 max-w-2xl mx-auto text-black">
+                           Stay connected with us and get early notifications.
+                         </p> <br></br>
+                         <Link 
+                           to="/signup"
+                           className="bg-transparent border border-black text-black px-15 py-3 rounded-lg font-semibold hover:bg-[#00ff88] hover:text-[#00ff88] transition-all duration-300 shadow-lg shadow-[#00ff88]/30 no-underline"
+                           style={{ textDecoration: 'none' }}
+                         >
+                           Join Us
+                         </Link>
+                       </section>
+
+        
+      </div>
+    </Layout>
+  );
+};
 
 export default Weather;
