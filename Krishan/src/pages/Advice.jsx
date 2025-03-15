@@ -1,4 +1,3 @@
-// src/pages/Advice.jsx
 import React, { useState, useEffect } from "react";
 import Layout from '../components/Layout';  // Assuming Layout is in the components folder
 import axios from "axios";
@@ -86,18 +85,36 @@ const Advice = () => {
 
   return (
     <Layout>
-      {/* Set the background color of the entire page to black */}
-      <Box sx={{ background: 'rgba(14, 31, 29, 0.9)', minHeight: '100vh', padding: '20px 0' }}>
+      {/* Set the background color of the entire page to match the theme */}
+      <Box sx={{ background: 'linear-gradient(to bottom, #0a1f1d, #0d2a28)', minHeight: '100vh', padding: '20px 0', textAlign: 'center' }}>c
         <Container maxWidth="lg">
-          {/* Page Title */}
-          <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mt: 4, color: '#00ff88' }} className="font-poppins bg-gradient-to-b from-[#0a1f1d] to-[#0d2a28]">
-            Advice Board
-          </Typography>
+          {/* Page Title */}<br></br>
+       
+          <section className="text-center mb-16">
+
+      <p1 className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">
+        Advice from Experts
+      </p1> <br></br><br></br>
+      <p className="text-xl md:text-xl text-gray-300 max-w-2xl mx-auto">
+        From innovative farming techniques to sustainable practices, our experts share actionable advice to help you maximize your yield and overcome challenges.
+      </p>
+    </section>
+        
 
           <Grid container spacing={4} sx={{ mt: 4 }}>
             {/* Left Side: Advice List */}
             <Grid item xs={12} md={7}>
-              <Paper elevation={3} sx={{ p: 3, backgroundColor: '#0a2f2c', border: '2px solid #00ff88', borderRadius: '12px', transition: 'all 0.3s', '&:hover': { borderColor: '#00b8ff' } }}>
+              <Paper
+                elevation={3}
+                sx={{
+                  p: 3,
+                  backgroundColor: '#0a2f2c',
+                  border: '2px solid #00ff88',
+                  borderRadius: '12px',
+                  transition: 'all 0.3s',
+                  '&:hover': { borderColor: '#00b8ff', boxShadow: '0 0 20px rgba(0, 255, 136, 0.3)' },
+                }}
+              >
                 <Typography variant="h6" component="h2" gutterBottom sx={{ color: '#00ff88' }}>
                   Advice List
                 </Typography>
@@ -108,7 +125,17 @@ const Advice = () => {
                 ) : (
                   <List>
                     {adviceList.map((advice) => (
-                      <ListItem key={advice._id} sx={{ mb: 2, backgroundColor: '#0a2f2c', border: '1px solid #00ff88', borderRadius: '8px', transition: 'all 0.3s', '&:hover': { borderColor: '#00b8ff' } }}>
+                      <ListItem
+                        key={advice._id}
+                        sx={{
+                          mb: 2,
+                          backgroundColor: '#0a2f2c',
+                          border: '1px solid #00ff88',
+                          borderRadius: '8px',
+                          transition: 'all 0.3s',
+                          '&:hover': { borderColor: '#00b8ff', boxShadow: '0 0 10px rgba(0, 255, 136, 0.3)' },
+                        }}
+                      >
                         <ListItemText
                           primary={
                             <Typography variant="body1" sx={{ color: '#00ff88' }}>
@@ -135,7 +162,17 @@ const Advice = () => {
 
             {/* Right Side: Advice Form */}
             <Grid item xs={12} md={5}>
-              <Paper elevation={3} sx={{ p: 3, backgroundColor: '#0a2f2c', border: '2px solid #00ff88', borderRadius: '12px', transition: 'all 0.3s', '&:hover': { borderColor: '#00b8ff' } }}>
+              <Paper
+                elevation={3}
+                sx={{
+                  p: 3,
+                  backgroundColor: '#0a2f2c',
+                  border: '2px solid #00ff88',
+                  borderRadius: '12px',
+                  transition: 'all 0.3s',
+                  '&:hover': { borderColor: '#00b8ff', boxShadow: '0 0 20px rgba(0, 255, 136, 0.3)' },
+                }}
+              >
                 <Typography variant="h6" component="h2" gutterBottom sx={{ color: '#00ff88' }}>
                   Post New Advice
                 </Typography>
@@ -147,7 +184,16 @@ const Advice = () => {
                     onChange={(e) => setTitle(e.target.value)}
                     margin="normal"
                     required
-                    sx={{ backgroundColor: '#0a2f2c', borderRadius: '8px', '& .MuiInputBase-root': { color: '#00ff88' }, '& .MuiInputLabel-root': { color: '#00ff88' } }}
+                    sx={{
+                      backgroundColor: '#0a2f2c',
+                      borderRadius: '8px',
+                      '& .MuiInputBase-root': { color: '#00ff88' },
+                      '& .MuiInputLabel-root': { color: '#00ff88' },
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': { borderColor: '#00ff88' },
+                        '&:hover fieldset': { borderColor: '#00b8ff' },
+                      },
+                    }}
                   />
                   <TextField
                     fullWidth
@@ -158,7 +204,16 @@ const Advice = () => {
                     multiline
                     rows={4}
                     required
-                    sx={{ backgroundColor: '#0a2f2c', borderRadius: '8px', '& .MuiInputBase-root': { color: '#00ff88' }, '& .MuiInputLabel-root': { color: '#00ff88' } }}
+                    sx={{
+                      backgroundColor: '#0a2f2c',
+                      borderRadius: '8px',
+                      '& .MuiInputBase-root': { color: '#00ff88' },
+                      '& .MuiInputLabel-root': { color: '#00ff88' },
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': { borderColor: '#00ff88' },
+                        '&:hover fieldset': { borderColor: '#00b8ff' },
+                      },
+                    }}
                   />
                   {error && (
                     <Typography color="error" sx={{ mt: 2, color: '#ff4444' }}>
@@ -169,7 +224,12 @@ const Advice = () => {
                     type="submit"
                     variant="contained"
                     color="primary"
-                    sx={{ mt: 2, backgroundColor: '#00ff88', color: '#0a2f2c', '&:hover': { backgroundColor: '#00b8ff' } }}
+                    sx={{
+                      mt: 2,
+                      background: 'linear-gradient(to right, #00ff88, #00b8ff)',
+                      color: '#0a2f2c',
+                      '&:hover': { background: 'linear-gradient(to right, #00b8ff, #00ff88)' },
+                    }}
                   >
                     Submit
                   </Button>
@@ -184,7 +244,11 @@ const Advice = () => {
             autoHideDuration={3000}
             onClose={handleCloseSnackbar}
           >
-            <Alert onClose={handleCloseSnackbar} severity="success" sx={{ backgroundColor: '#00ff88', color: '#0a2f2c' }}>
+            <Alert
+              onClose={handleCloseSnackbar}
+              severity="success"
+              sx={{ backgroundColor: '#00ff88', color: '#0a2f2c' }}
+            >
               Advice posted successfully!
             </Alert>
           </Snackbar>
