@@ -111,7 +111,7 @@ const Insights = () => {
                 <ListItem key={product._id} className="hover:bg-[#e4fde1] transition-all">
                   <ListItemText
                     primary={product.name}
-                    secondary={`Price: $${product.price}`}
+                    secondary={`Price: ৳${product.price}`}
                     primaryTypographyProps={{ className: "text-[#00ff88]" }}
                     secondaryTypographyProps={{ className: "text-gray-300" }}
                   />
@@ -147,8 +147,8 @@ const Insights = () => {
                 <tr className="bg-[#0a1f1d]">
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Type</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Unit</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price (৳)</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price (৳)</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Change (%)</th>
                 </tr>
               </thead>
@@ -187,8 +187,8 @@ const Insights = () => {
                 <tr className="bg-[#0a1f1d]">
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Type</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Unit</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price (৳) </th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price (৳) </th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Change (%)</th>
                 </tr>
               </thead>
@@ -219,8 +219,8 @@ const Insights = () => {
                 <tr className="bg-[#0a1f1d]">
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Type</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Unit</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price (৳)</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price (৳)</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Change (%)</th>
                 </tr>
               </thead>
@@ -252,8 +252,8 @@ const Insights = () => {
                 <tr className="bg-[#0a1f1d]">
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Type</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Unit</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price</th>
-                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Min Price (৳)</th>
+                  <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Max Price (৳)</th>
                   <th className="p-3 border border-[#00ff88]/20 text-left text-[#00ff88]">Change (%)</th>
                 </tr>
               </thead>
