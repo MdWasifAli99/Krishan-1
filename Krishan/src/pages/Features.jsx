@@ -35,9 +35,7 @@ const Features = () => {
                 Learn More
               </button></Link>
 
-              <Link to ="/featureblog1"> <button className="bg-transparent border border-[#00ff88] text-[#ffffff] px-8 py-3 rounded-lg font-semibold hover:bg-[#00ff88] hover:text-[#00ff88] transition-all duration-300 shadow-lg shadow-[#00ff88]/30">
-                Learn More
-              </button></Link>
+              
              
 
             </div>
