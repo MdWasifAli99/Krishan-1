@@ -2,7 +2,6 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// Generate JWT Token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
@@ -55,4 +54,45 @@ const logoutUser = (req, res) => {
   res.json({ message: 'Logged out successfully' });
 };
 
-module.exports = { registerUser, loginUser, getUserProfile, logoutUser };
+
+const updateUserProfile = (async (req, res) => {
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(404);
+    throw new Error('User not found');
+  }
+  if (req.body.currentPassword) {
+    const isPasswordValid = await bcrypt.compare(req.body.currentPassword, user.password);
+    if (!isPasswordValid) {
+      res.status(401);
+      throw new Error('Current password is incorrect');
+    }
+
+    // Hash the new password
+    if (req.body.newPassword) {
+      user.password = await bcrypt.hash(req.body.newPassword, 10);
+    }
+  }
+  
+  // Update user fields (only update fields that are provided in the request)
+  user.name = req.body.name || user.name;
+  user.email = req.body.email || user.email;
+  user.location = req.body.location || user.location;
+  user.role = req.body.role || user.role;
+
+  // Save updated user
+  const updatedUser = await user.save();
+
+  res.json({
+    _id: updatedUser._id,
+    name: updatedUser.name,
+    email: updatedUser.email,
+    role: updatedUser.role,
+    location: updatedUser.location,
+  });
+});
+
+
+
+module.exports = { registerUser, loginUser, getUserProfile, logoutUser , updateUserProfile};

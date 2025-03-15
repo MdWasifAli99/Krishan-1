@@ -1,92 +1,99 @@
-import Layout from '../components/Layout'
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { Card, CardContent, Typography, List, ListItem, ListItemText } from "@mui/material";
+import Layout from '../components/Layout';
+import { Bar } from "react-chartjs-2";
+import axios from "axios";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Register Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Insights = () => {
+  const [products, setProducts] = useState([]);
+
+  // Fetch products from the backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/products"); // Adjust the API endpoint as needed
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Prepare data for the chart
+  const chartData = {
+    labels: products.map((product) => product.name), // X-axis: Product names
+    datasets: [
+      {
+        label: "Price",
+        data: products.map((product) => product.price), // Y-axis: Product prices
+        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Product Prices",
+      },
+    },
+  };
+
   return (
     <Layout>
-        <h1>  Insights </h1>
-         {/* Footer */}
-    <footer className="bg-green-50 border-t border-gray-200 mt-10">
-  <div className="max-w-7xl mx-auto px-4 py-8">
-    <div className="flex flex-col md:flex-row md:justify-between md:items-start space-y-8 md:space-y-0">
-      {/* Newsletter */}
-      <div className="md:w-1/2 lg:w-1/3 space-y-2">
-        <h3 className="text-sm font-semibold text-gray-700">
-          Subscribe to our newsletter for the latest updates on features and releases
-        </h3>
-        <div className="flex">
-          <input
-            type="email"
-            placeholder="Your Email Here"
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-green-600"
-          />
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r">
-            Join
-          </button>
-        </div>
-      </div>
+    <div style={{ padding: "20px" }}>
+      {/* Graph Section */}
+      <Card style={{ marginBottom: "20px" }}>
+        <CardContent>
+          <Typography variant="h5" gutterBottom>
+            Product Price Graph
+          </Typography>
+          <Bar data={chartData} options={chartOptions} />
+        </CardContent>
+      </Card>
 
-      {/* Footer Links */}
-      <div className="flex flex-wrap md:w-1/2 lg:w-2/3 justify-between">
-        {/* Resources */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Resources</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#about" className="hover:text-green-600">About</a>
-            </li>
-            <li>
-              <a href="#blog" className="hover:text-green-600">Blog Posts</a>
-            </li>
-            <li>
-              <a href="#help" className="hover:text-green-600">Help Center</a>
-            </li>
-            <li>
-              <a href="#community" className="hover:text-green-600">Community</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Connect With Us */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Connect With Us</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#facebook" className="hover:text-green-600">Facebook Page</a>
-            </li>
-            <li>
-              <a href="#instagram" className="hover:text-green-600">Instagram Feed</a>
-            </li>
-            <li>
-              <a href="#twitter" className="hover:text-green-600">Twitter</a>
-            </li>
-            <li>
-              <a href="#linkedin" className="hover:text-green-600">LinkedIn</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Legal Links */}
-        <div className="mb-4 md:mb-0">
-          <h4 className="font-semibold text-gray-800">Legal Links</h4>
-          <ul className="mt-2 space-y-1 text-sm text-gray-600">
-            <li>
-              <a href="#privacy" className="hover:text-green-600">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#terms" className="hover:text-green-600">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#cookie" className="hover:text-green-600">Cookie Settings</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      {/* Product List Section */}
+      <Card>
+        <CardContent>
+          <Typography variant="h5" gutterBottom>
+            Product List
+          </Typography>
+          <List>
+            {products.map((product) => (
+              <ListItem key={product._id}>
+                <ListItemText
+                  primary={product.name}
+                  secondary={`Price: $${product.price}`}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </CardContent>
+      </Card>
     </div>
-  </div>
-</footer>
     </Layout>
-  )
-}
+  );
+};
 
-export default Insights
+export default Insights;
