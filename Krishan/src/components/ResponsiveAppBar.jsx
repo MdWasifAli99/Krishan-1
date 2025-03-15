@@ -11,9 +11,8 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
 import logo from '../images/KrishanLogo.png';
-import { useNavigate } from 'react-router-dom';
 
 // Define pages and settings
 const pages = [
@@ -25,11 +24,18 @@ const pages = [
   { name: 'Community', path: '/community' },
   { name: 'About Us', path: '/about-us' },
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+// Add paths for settings
+const settings = [
+  { name: 'Profile', path: '/profile' },
+  { name: 'Dashboard', path: '/dashboard' },
+  { name: 'Logout', path: '/' }, // Logout doesn't need a path
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate(); // Use useNavigate at the top level
 
   // Check if the user is logged in
   const isLoggedIn = localStorage.getItem('token'); // Check for token in local storage
@@ -51,10 +57,8 @@ function ResponsiveAppBar() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    const navigate = useNavigate();
-    navigate('/');
-  
+    localStorage.removeItem('token'); // Remove token from local storage
+    navigate('/'); // Redirect to the home page
   };
 
   return (
@@ -229,16 +233,16 @@ function ResponsiveAppBar() {
               >
                 {settings.map((setting) => (
                   <MenuItem
-                    key={setting}
+                    key={setting.name}
                     onClick={
-                      setting === 'Logout'
+                      setting.name === 'Logout'
                         ? handleLogout
                         : handleCloseUserMenu
                     }
-                    component={setting === 'Profile' ? Link : 'li'} // Use Link for Profile
-                    to={setting === 'Profile' ? '/profile' : '#'} // Redirect to /profile
+                    component={Link} // Use Link for navigation
+                    to={setting.path} // Link to the respective page
                   >
-                    <Typography textAlign="center">{setting}</Typography>
+                    <Typography textAlign="center">{setting.name}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
